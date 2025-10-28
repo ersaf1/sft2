@@ -32,9 +32,12 @@ const Navbar = () => {
                         <li><Link to="/gallery" className={isActive('/gallery') ? 'active' : ''}>Galeri</Link></li>
                     </ul>
                 </div>
-                <Link to="/" className="btn btn-ghost text-xl font-bold hover:scale-105 transition-transform">
-                    <span className="gradient-text text-2xl font-black">eseftwo</span>
-                    <span className="text-accent ml-2 font-bold text-sm">PPLG 2</span>
+                <Link to="/" className="btn btn-ghost gap-2 items-center hover:scale-105 transition-transform">
+                    <img src="/sft.svg" alt="SFT logo" className="h-14 md:h-16 w-auto" />
+                    <div className="hidden sm:block">
+                        <span className="gradient-text text-2xl font-black">eseftwo</span>
+                        <span className="text-accent ml-2 font-bold text-sm block">PPLG 2</span>
+                    </div>
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
