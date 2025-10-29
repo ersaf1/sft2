@@ -31,9 +31,6 @@ const Home = () => {
                                 <Link to="/about" className="btn btn-primary btn-lg hover:scale-105 transition-transform">
                                     Tentang Kami
                                 </Link>
-                                <Link to="/projects" className="btn glass-effect btn-lg hover:scale-105 transition-transform">
-                                    Lihat Proyek
-                                </Link>
                                 <Link to="/members" className="btn btn-outline btn-lg hover:scale-105 transition-transform">
                                     Anggota Kelas
                                 </Link>
@@ -80,7 +77,7 @@ const Home = () => {
 <div className="container mx-auto px-4 py-20"> 
     <div className="text-center mb-12">
         {/* PERBAIKAN UTAMA DI SINI: Mengubah text-5xl menjadi text-4xl di layar kecil (default), dan kembali ke 5xl di layar menengah (md) ke atas */}
-        <h2 className="text-4xl md:text-5xl font-black mb-4 gradient-text"> 
+        <h2 className="text-4xl md:text-5xl font-black mb-4 gradient-text leading-normal md:leading-tight" style={{ WebkitFontSmoothing: 'antialiased' }}>
             Teknologi yang Kami Kuasai
         </h2>
         <p className="text-lg text-base-content/70">Stack modern untuk project masa depan</p>
@@ -171,7 +168,7 @@ const Home = () => {
             <div className="relative overflow-hidden py-20">
                 <div className="container mx-auto px-4 text-center relative z-10">
                     <div className="max-w-3xl mx-auto glass-effect p-10 rounded-3xl simple-border">
-                        <h2 className="text-5xl font-black mb-6 gradient-text">
+                        <h2 className="text-5xl font-black mb-6 gradient-text leading-normal md:leading-tight" style={{ WebkitFontSmoothing: 'antialiased' }}>
                             Bergabung dengan Kami
                         </h2>
                         <p className="text-xl mb-8 text-base-content/70">

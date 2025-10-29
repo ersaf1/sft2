@@ -51,6 +51,26 @@ export default {
     daisyui: {
         themes: [
             {
+                'eseftwo-light': {
+                    "primary": "#5800FF",
+                    "primary-content": "#ffffff",
+                    "secondary": "#0096FF",
+                    "secondary-content": "#ffffff",
+                    "accent": "#00D7FF",
+                    "accent-content": "#000000",
+                    "neutral": "#f5f5f5",
+                    "neutral-content": "#0f0f0f",
+                    "base-100": "#ffffff",
+                    "base-200": "#f7f7f7",
+                    "base-300": "#efefef",
+                    "base-content": "#0f0f0f",
+                    "info": "#00D7FF",
+                    "success": "#72FFFF",
+                    "warning": "#0096FF",
+                    "error": "#5800FF",
+                },
+            },
+            {
                 minimalist: {
                     "primary": "#5800FF",
                     "primary-content": "#ffffff",

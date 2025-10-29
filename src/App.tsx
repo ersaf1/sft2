@@ -4,7 +4,6 @@ import Footer from './components/Footer'
 import Home from './pages/Home.tsx'
 import About from './pages/About'
 import Members from './pages/Members'
-import Projects from './pages/Projects'
 import Gallery from './pages/Gallery'
 
 function App() {
@@ -16,7 +15,6 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/members" element={<Members />} />
-                    <Route path="/projects" element={<Projects />} />
                     <Route path="/gallery" element={<Gallery />} />
                 </Routes>
             </main>
