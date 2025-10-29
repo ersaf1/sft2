@@ -87,16 +87,22 @@ const activities = [
 
 ### Mengubah Warna Tema
 
-Edit `tailwind.config.js`:
+Project ini sekarang memakai palet warna utama berikut:
+
+- `#5800FF` (primary)
+- `#0096FF` (secondary)
+- `#00D7FF` (accent / info)
+- `#72FFFF` (success / highlight)
+
+Contoh pengaturan di `tailwind.config.js` (sudah diperbarui):
 
 ```javascript
 eseftwo: {
-  "primary": "#6366f1",    // Warna utama
-  "secondary": "#8b5cf6",  // Warna sekunder
-  "accent": "#f59e0b",     // Warna aksen
-  "neutral": "#1f2937",    // Warna netral
-  "base-100": "#ffffff",   // Warna background
-  // ... dll
+  "primary": "#5800FF",
+  "secondary": "#0096FF",
+  "accent": "#00D7FF",
+  "neutral": "#1f2937",
+  "base-100": "#0f0f0f",
 }
 ```
 
