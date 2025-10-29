@@ -2,15 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Base palette */
+  --p-primary: #5800FF;
+  --p-secondary: #0096FF;
+  --p-accent: #00D7FF;
+  --p-highlight: #72FFFF;
+  
+    /* Text colors for dark mode */
+    --text-main: #ffffff;
+    --text-muted: #a0aec0;
+  
+    /* Background colors */
+    --bg-main: #0a0a0a;
+  
+  /* Darker variants for light mode */
+  --p-primary-dark: #4a00d9;
+  --p-secondary-dark: #0076C2;
+  --p-accent-dark: #00A0B3;
+  --p-highlight-dark: #36BABA;
+
+  /* Background & borders */
+  --bg-glass: rgba(26, 26, 26, 0.5);
+  --bg-glass-hover: rgba(30, 30, 30, 0.7);
+  --border-glow: rgba(0, 215, 255, 0.1);
+  --border-glow-hover: rgba(0, 215, 255, 0.3);
+  --shadow-glow: rgba(0, 215, 255, 0.15);
+}
+
+/* Light theme palette overrides */
+:root[data-theme="eseftwo-light"] {
+  --p-primary: var(--p-primary-dark);
+  --p-secondary: var(--p-secondary-dark);
+  --p-accent: var(--p-accent-dark);
+  --p-highlight: var(--p-highlight-dark);
+  
+    /* Backgrounds */
+    --bg-main: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.8);
+  --bg-glass-hover: rgba(255, 255, 255, 0.9);
+  
+    /* Text colors */
+    --text-main: #1a1a1a;
+    --text-muted: #4a5568;
+  
+  --border-glow: rgba(0, 118, 194, 0.08);
+  --border-glow-hover: rgba(0, 118, 194, 0.12);
+  --shadow-glow: rgba(0, 118, 194, 0.15);
+}
+
 @layer base {
   body {
-    @apply bg-base-100 text-base-content;
+     background-color: var(--bg-main);
+     color: var(--text-main);
   }
 }
 
 @layer components {
   .hero-gradient {
-    background: linear-gradient(-45deg, #0a0a0a, #141414, #0f0f0f, #1a1a1a);
+    background: var(--bg-main);
     background-size: 400% 400%;
     animation: gradient 20s ease infinite;
     position: relative;
@@ -25,14 +75,14 @@
     right: 0;
     bottom: 0;
     background: 
-      radial-gradient(circle at 20% 30%, rgba(0, 215, 255, 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 80% 70%, rgba(0, 150, 255, 0.08) 0%, transparent 50%);
+      radial-gradient(circle at 20% 30%, rgba(var(--p-accent), 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(var(--p-secondary), 0.08) 0%, transparent 50%);
     animation: pulse-slow 10s ease-in-out infinite;
   }
 
   /* Light theme overrides for hero and glass components */
   :root[data-theme="eseftwo-light"] .hero-gradient {
-    background: linear-gradient(-45deg, #ffffff, #f7f7f7, #ffffff);
+    background: var(--bg-main);
     background-size: 400% 400%;
     animation: none;
     position: relative;
@@ -41,102 +91,86 @@
 
   :root[data-theme="eseftwo-light"] .hero-gradient::before {
     background: 
-      radial-gradient(circle at 20% 30%, rgba(88, 0, 255, 0.04) 0%, transparent 50%),
-      radial-gradient(circle at 80% 70%, rgba(0, 150, 255, 0.03) 0%, transparent 50%);
+      radial-gradient(circle at 20% 30%, rgba(var(--p-primary), 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(var(--p-secondary), 0.03) 0%, transparent 50%);
     animation: none;
   }
 
   :root[data-theme="eseftwo-light"] .glass-effect {
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 150, 255, 0.08);
+    background: var(--bg-glass);
+    border: 1px solid var(--border-glow);
   }
 
   :root[data-theme="eseftwo-light"] .card-hover {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(0, 150, 255, 0.06);
+    background: var(--bg-glass-hover);
+    border: 1px solid var(--border-glow);
   }
 
   /* Make gradient text and icons a bit darker on white background */
   :root[data-theme="eseftwo-light"] .gradient-text {
-    background: linear-gradient(135deg, #5800FF, #0096FF, #00D7FF);
+    background: linear-gradient(135deg, var(--p-primary), var(--p-secondary), var(--p-accent));
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
+    /* Text colors for different contexts */
+    .text-primary {
+      color: var(--p-primary);
+    }
+  
+    .text-secondary {
+      color: var(--p-secondary);
+    }
+  
+    .text-muted {
+      color: var(--text-muted);
+    }
   :root[data-theme="eseftwo-light"] .tech-icon {
-    color: #0096FF;
+    color: var(--p-secondary);
   }
 
   :root[data-theme="eseftwo-light"] .tech-icon:hover {
-    color: #5800FF;
+    color: var(--p-primary);
   }
 
-  /* Further darkened variants for very bright palette stops so they read on white */
-  :root[data-theme="eseftwo-light"] .gradient-text {
-    /* use slightly darker stops for better contrast on white */
-    background: linear-gradient(135deg, #4a00d9, #0076C2, #00A0B3, #36BABA);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  :root[data-theme="eseftwo-light"] .tech-icon {
-    color: #0076C2; /* darker secondary */
-  }
-
-  :root[data-theme="eseftwo-light"] .tech-icon:hover {
-    color: #4a00d9; /* darker primary */
-  }
-
-  /* darker/accent for scroll thumb on white */
+  /* Scrollbar styling for light theme */
   :root[data-theme="eseftwo-light"] ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #0076C2, #00A0B3);
-  }
-
-  /* slightly stronger borders on white background for visibility */
-  :root[data-theme="eseftwo-light"] .simple-border {
-    border: 1px solid rgba(0, 118, 194, 0.12);
-  }
-
-  /* Darker scrollbar thumb for readability on white */
-  :root[data-theme="eseftwo-light"] ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #0096FF, #00D7FF);
+    background: linear-gradient(180deg, var(--p-secondary), var(--p-accent));
   }
 
   :root[data-theme="eseftwo-light"] ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #5800FF, #0096FF);
+    background: linear-gradient(180deg, var(--p-primary), var(--p-secondary));
   }
 
-  /* Ensure subtle borders are visible on white */
+  /* Borders for light theme */
   :root[data-theme="eseftwo-light"] .simple-border {
-    border: 1px solid rgba(0, 150, 255, 0.08);
+    border: 1px solid var(--border-glow);
   }
   
   .card-hover {
     @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
     position: relative;
-    background: rgba(26, 26, 26, 0.5);
+    background: var(--bg-glass);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 215, 255, 0.1);
+    border: 1px solid var(--border-glow);
   }
   
   .card-hover:hover {
-    background: rgba(30, 30, 30, 0.7);
-    border-color: rgba(0, 215, 255, 0.3);
-    box-shadow: 0 4px 20px rgba(0, 215, 255, 0.15);
+    background: var(--bg-glass-hover);
+    border-color: var(--border-glow-hover);
+    box-shadow: 0 4px 20px var(--shadow-glow);
   }
   
   .tech-icon {
     @apply w-16 h-16 mx-auto mb-4 transition-all duration-300;
-    color: #00D7FF;
+    color: var(--p-accent);
   }
   
   .tech-icon:hover {
     @apply scale-110;
-    color: #0096FF;
+    color: var(--p-secondary);
   }
   
   @keyframes fade-in {
@@ -168,7 +202,7 @@
   }
   
   .gradient-text {
-    background: linear-gradient(135deg, #5800FF, #0096FF, #00D7FF, #72FFFF);
+    background: linear-gradient(135deg, var(--p-primary), var(--p-secondary), var(--p-accent), var(--p-highlight));
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
@@ -176,24 +210,24 @@
   }
   
   .glass-effect {
-    background: rgba(20, 20, 20, 0.7);
+    background: var(--bg-glass);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(0, 215, 255, 0.15);
+    border: 1px solid var(--border-glow);
   }
   
   .glass-effect:hover {
-    border-color: rgba(0, 215, 255, 0.3);
-    background: rgba(25, 25, 25, 0.8);
+    border-color: var(--border-glow-hover);
+    background: var(--bg-glass-hover);
   }
   
   .simple-border {
-    border: 1px solid rgba(0, 215, 255, 0.2);
+    border: 1px solid var(--border-glow);
   }
   
   .simple-border:hover {
-    border-color: rgba(0, 215, 255, 0.4);
-    box-shadow: 0 0 15px rgba(0, 215, 255, 0.1);
+    border-color: var(--border-glow-hover);
+    box-shadow: 0 0 15px var(--shadow-glow);
   }
 }
 
@@ -207,12 +241,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #0096FF, #00D7FF);
+  background: linear-gradient(180deg, var(--p-secondary), var(--p-accent));
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #5800FF, #0096FF);
+  background: linear-gradient(180deg, var(--p-primary), var(--p-secondary));
 }
 
 /* Smooth scroll */

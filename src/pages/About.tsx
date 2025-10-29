@@ -10,17 +10,17 @@ const About = () => {
 
             {/* Main Content */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-                <div className="card bg-base-100 shadow-xl">
+                <div className="card bg-light shadow-xl">
                     <div className="card-body">
                         <h2 className="card-title text-2xl text-primary">Visi Kami</h2>
-                        <p className="text-lg">
+                        <p className="text-lg text-dark">
                             Menjadi kelas yang menghasilkan developer dan game developer terbaik yang mampu
                             bersaing di era digital, dengan kemampuan teknis yang solid dan kreativitas yang tinggi.
                         </p>
                     </div>
                 </div>
 
-                <div className="card bg-base-100 shadow-xl">
+                <div className="card bg-light shadow-xl">
                     <div className="card-body">
                         <h2 className="card-title text-2xl text-secondary">Misi Kami</h2>
                         <ul className="list-disc list-inside space-y-2">
@@ -34,48 +34,51 @@ const About = () => {
             </div>
 
             {/* Timeline */}
-            <div className="mb-12">
-                <h2 className="text-3xl font-bold text-center mb-8">Perjalanan Kami</h2>
-                <ul className="timeline timeline-vertical">
-                    <li>
-                        <div className="timeline-start timeline-box">
-                            <div className="font-bold">Tahun Pertama</div>
-                            Mempelajari dasar-dasar pemrograman, algoritma, dan struktur data
-                        </div>
-                        <div className="timeline-middle">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-primary">
-                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
-                            </svg>
-                        </div>
-                        <hr className="bg-primary" />
-                    </li>
-                    <li>
-                        <hr className="bg-primary" />
-                        <div className="timeline-middle">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-primary">
-                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
-                            </svg>
-                        </div>
-                        <div className="timeline-end timeline-box">
-                            <div className="font-bold">Tahun Kedua</div>
-                            Mengembangkan aplikasi web dan mobile, serta game sederhana
-                        </div>
-                        <hr className="bg-secondary" />
-                    </li>
-                    <li>
-                        <hr className="bg-secondary" />
-                        <div className="timeline-start timeline-box">
-                            <div className="font-bold">Tahun Ketiga</div>
-                            Membuat proyek besar dan siap memasuki dunia industri
-                        </div>
-                        <div className="timeline-middle">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-secondary">
-                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
-                            </svg>
-                        </div>
-                    </li>
-                </ul>
+           <div className="mb-12">
+    <h2 className="text-3xl font-bold text-center mb-8">Perjalanan Kami</h2>
+    <ul className="timeline timeline-vertical">
+        <li>
+            {/* PERBAIKAN: Tambahkan kelas text-white di sini */}
+            <div className="timeline-start timeline-box bg-dark text-white">
+                <div className="font-bold">Tahun Pertama</div>
+                Mempelajari dasar-dasar pemrograman, algoritma, dan struktur data
             </div>
+            <div className="timeline-middle">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-light">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
+                </svg>
+            </div>
+            <hr className="bg-primary" />
+        </li>
+        <li>
+            <hr className="bg-primary" />
+            <div className="timeline-middle">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-light">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
+                </svg>
+            </div>
+            {/* PERBAIKAN: Tambahkan kelas text-white di sini */}
+            <div className="timeline-end timeline-box bg-dark text-white">
+                <div className="font-bold">Tahun Kedua</div>
+                Mengembangkan aplikasi web dan mobile, serta game sederhana
+            </div>
+            <hr className="bg-secondary" />
+        </li>
+        <li>
+            <hr className="bg-secondary" />
+            {/* PERBAIKAN: Tambahkan kelas text-white di sini */}
+            <div className="timeline-start timeline-box bg-dark text-white">
+                <div className="font-bold">Tahun Ketiga</div>
+                Membuat proyek besar dan siap memasuki dunia industri
+            </div>
+            <div className="timeline-middle">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-light">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
+                </svg>
+            </div>
+        </li>
+    </ul>
+</div>
 
             {/* Values */}
             <div className="mb-12">

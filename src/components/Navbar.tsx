@@ -59,7 +59,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <Link to="/" className="btn btn-ghost gap-2 items-center hover:scale-105 transition-transform">
-                    <img src="/sft.svg" alt="SFT logo" className="h-14 md:h-16 w-auto" />
+                    <img src="/sft.png" alt="SFT logo" className="h-14 md:h-16 w-auto" />
                     <div className="hidden sm:block">
                         <span className="gradient-text text-2xl font-black">ESEFTWO</span>
                     </div>

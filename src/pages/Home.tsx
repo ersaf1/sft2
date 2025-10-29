@@ -10,17 +10,17 @@ const Home = () => {
                         <div className="animate-fade-in">
                             <div className="mb-6">
                                 <span className="inline-block px-4 py-2 glass-effect rounded-full text-sm font-semibold mb-4">
-                                    ✨ Kelas PPLG 2 - eseftwo
+                                    XI Kelas PPLG 2 - eseftwo
                                 </span>
                             </div>
 
                             <h1 className="text-7xl md:text-8xl font-black mb-6 leading-tight">
                                 <span className="gradient-text">Software & Game</span>
                                 <br />
-                                <span className="text-base-content">Development</span>
+                                <span className="text-dark">Development</span>
                             </h1>
 
-                            <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-base-content/70 leading-relaxed">
+                            <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-dark/70 leading-relaxed">
                                 Kelas yang fokus pada pengembangan perangkat lunak dan game dengan
                                 <span className="text-primary font-semibold"> teknologi modern</span> dan
                                 <span className="text-secondary font-semibold"> kreativitas tanpa batas</span>
@@ -31,7 +31,7 @@ const Home = () => {
                                 <Link to="/about" className="btn btn-primary btn-lg hover:scale-105 transition-transform">
                                     Tentang Kami
                                 </Link>
-                                <Link to="/members" className="btn btn-outline btn-lg hover:scale-105 transition-transform">
+                                <Link to="/members" className="btn btn-dark btn-lg hover:scale-105 transition-transform">
                                     Anggota Kelas
                                 </Link>
                             </div>
@@ -49,7 +49,7 @@ const Home = () => {
                             <div className="text-5xl mb-4">👥</div>
                             <div className="text-5xl font-black mb-2 gradient-text">35+</div>
                             <h3 className="text-lg font-bold text-primary mb-2">Anggota Kelas</h3>
-                            <p className="text-base-content/70">Developers berbakat</p>
+                            <p className="text-dark/70">Developers berbakat</p>
                         </div>
                     </div>
 
@@ -58,7 +58,7 @@ const Home = () => {
                             <div className="text-5xl mb-4">🏆</div>
                             <div className="text-5xl font-black mb-2 gradient-text">20+</div>
                             <h3 className="text-lg font-bold text-secondary mb-2">Proyek Selesai</h3>
-                            <p className="text-base-content/70">Aplikasi & Game</p>
+                            <p className="text-dark/70">Aplikasi & Game</p>
                         </div>
                     </div>
 
@@ -67,7 +67,7 @@ const Home = () => {
                             <div className="text-5xl mb-4">⚡</div>
                             <div className="text-5xl font-black mb-2 gradient-text">15+</div>
                             <h3 className="text-lg font-bold text-accent mb-2">Tech Stack</h3>
-                            <p className="text-base-content/70">Teknologi modern</p>
+                            <p className="text-dark/70">Teknologi modern</p>
                         </div>
                     </div>
                 </div>
@@ -80,7 +80,7 @@ const Home = () => {
         <h2 className="text-4xl md:text-5xl font-black mb-4 gradient-text leading-normal md:leading-tight" style={{ WebkitFontSmoothing: 'antialiased' }}>
             Teknologi yang Kami Kuasai
         </h2>
-        <p className="text-lg text-base-content/70">Stack modern untuk project masa depan</p>
+    <p className="text-lg text-dark/70">Stack modern untuk project masa depan</p>
     </div>
 
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -93,7 +93,7 @@ const Home = () => {
                     </svg>
                 </div>
                 <h3 className="card-title text-primary">Web Development</h3>
-                <p className="text-base-content/70">HTML, CSS, JavaScript, React, TypeScript</p>
+                <p className="text-dark/70">HTML, CSS, JavaScript, React, TypeScript</p>
             </div>
         </div>
 
@@ -106,7 +106,7 @@ const Home = () => {
                     </svg>
                 </div>
                 <h3 className="card-title text-secondary">Mobile Development</h3>
-                <p className="text-base-content/70">Android, Kotlin, Flutter</p>
+                <p className="text-dark/70">Android, Kotlin, Flutter</p>
             </div>
         </div>
 
@@ -119,7 +119,7 @@ const Home = () => {
                     </svg>
                 </div>
                 <h3 className="card-title text-accent">Game Development</h3>
-                <p className="text-base-content/70">Unity, Unreal Engine, Godot</p>
+                <p className="text-dark/70">Unity, Unreal Engine, Godot</p>
             </div>
         </div>
 
@@ -132,7 +132,7 @@ const Home = () => {
                     </svg>
                 </div>
                 <h3 className="card-title text-primary">Database</h3>
-                <p className="text-base-content/70">MySQL, PostgreSQL, MongoDB</p>
+                <p className="text-dark/70">MySQL, PostgreSQL, MongoDB</p>
             </div>
         </div>
 
@@ -145,7 +145,7 @@ const Home = () => {
                     </svg>
                 </div>
                 <h3 className="card-title text-secondary">UI/UX Design</h3>
-                <p className="text-base-content/70">Figma, Adobe XD</p>
+                <p className="text-dark/70">Figma, Adobe XD</p>
             </div>
         </div>
 
@@ -158,7 +158,7 @@ const Home = () => {
                     </svg>
                 </div>
                 <h3 className="card-title text-accent">Backend Development</h3>
-                <p className="text-base-content/70">Node.js, Express, Laravel</p>
+                <p className="text-dark/70">Node.js, Express, Laravel</p>
             </div>
         </div>
     </div>
@@ -171,14 +171,14 @@ const Home = () => {
                         <h2 className="text-5xl font-black mb-6 gradient-text leading-normal md:leading-tight" style={{ WebkitFontSmoothing: 'antialiased' }}>
                             Bergabung dengan Kami
                         </h2>
-                        <p className="text-xl mb-8 text-base-content/70">
+                        <p className="text-xl mb-8 text-dark/70">
                             Mari belajar dan berkembang bersama di dunia software & game development
                         </p>
                         <div className="flex gap-4 justify-center flex-wrap">
                             <Link to="/members" className="btn btn-primary btn-lg hover:scale-105 transition-all">
                                 👥 Lihat Anggota
                             </Link>
-                            <Link to="/gallery" className="btn btn-outline btn-lg hover:scale-105 transition-all">
+                            <Link to="/gallery" className="btn btn-dark btn-lg hover:scale-105 transition-all">
                                 📸 Galeri Kami
                             </Link>
                         </div>
