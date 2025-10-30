@@ -58,19 +58,17 @@ const Navbar = () => {
                         <li><Link to="/gallery" className={isActive('/gallery') ? 'active' : ''}>Galeri</Link></li>
                     </ul>
                 </div>
-                <Link to="/" className="btn btn-ghost gap-2 items-center hover:scale-105 transition-transform">
-                    <img src="/sft.png" alt="SFT logo" className="h-14 md:h-16 w-auto" />
-                    <div className="hidden sm:block">
-                        <span className="gradient-text text-2xl font-black">ESEFTWO</span>
-                    </div>
-                </Link>
+                <div className="flex gap-3 items-center pl-2">
+                    <img src="/sft.png" alt="SFT logo" className="h-10 md:h-12 w-auto" />
+                    <span className="gradient-text text-xl md:text-2xl font-black leading-none tracking-tight">ESEFTWO</span>
+                </div>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    <li><Link to="/" className={isActive('/') ? 'active' : ''}>Home</Link></li>
-                    <li><Link to="/about" className={isActive('/about') ? 'active' : ''}>Tentang</Link></li>
-                    <li><Link to="/members" className={isActive('/members') ? 'active' : ''}>Anggota</Link></li>
-                    <li><Link to="/gallery" className={isActive('/gallery') ? 'active' : ''}>Galeri</Link></li>
+                <ul className="menu menu-horizontal px-1 gap-2">
+                    <li><Link to="/" className={`text-base ${isActive('/') ? 'active' : ''}`}>Home</Link></li>
+                    <li><Link to="/about" className={`text-base ${isActive('/about') ? 'active' : ''}`}>Tentang</Link></li>
+                    <li><Link to="/members" className={`text-base ${isActive('/members') ? 'active' : ''}`}>Anggota</Link></li>
+                    <li><Link to="/gallery" className={`text-base ${isActive('/gallery') ? 'active' : ''}`}>Galeri</Link></li>
                 </ul>
             </div>
             <div className="navbar-end gap-2">
@@ -79,17 +77,18 @@ const Navbar = () => {
                     aria-label="Toggle light/dark theme"
                     title={tooltipText}
                     aria-pressed={theme === 'eseftwo-light'}
-                    className="btn btn-ghost btn-circle simple-border hover:scale-105 transition-transform"
+                    className="btn btn-ghost btn-circle border border-base-content/10 hover:border-primary/30 hover:bg-primary/5 transition-all"
                 >
                     {theme === 'eseftwo-light' ? (
                         // Sun icon for light mode
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M6.76 4.84l-1.8-1.79L3.17 4.84l1.79 1.79 1.8-1.79zM1 13h3v-2H1v2zm10-9h2V1h-2v3zm7.03 1.05l1.79-1.79-1.79-1.79-1.79 1.79 1.79 1.79zM17 13h3v-2h-3v2zM12 6a6 6 0 100 12 6 6 0 000-12zm4.24 13.16l1.8 1.79 1.79-1.79-1.79-1.79-1.8 1.79zM12 23h2v-3h-2v3zM4.24 18.36l-1.8 1.79L4.43 21.94l1.8-1.79-1.99-1.79z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-warning" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 17.5a5.5 5.5 0 100-11 5.5 5.5 0 000 11zm0-9a3.5 3.5 0 110 7 3.5 3.5 0 010-7z"/>
+                            <path d="M13 1h-2v3h2V1zm0 19h-2v3h2v-3zM4 11H1v2h3v-2zm19 0h-3v2h3v-2zM5.99 4.58L4.58 5.99l1.41 1.41 1.42-1.41-1.42-1.41zm12.02 12.02l-1.41 1.41 1.41 1.42 1.42-1.42-1.42-1.41zM18.01 4.58l1.42 1.41 1.41-1.41-1.41-1.42-1.42 1.42zM5.99 18.01l1.41-1.41-1.41-1.42-1.42 1.42 1.42 1.41z"/>
                         </svg>
                     ) : (
                         // Moon icon for dark mode
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M21.64 13a1 1 0 00-1.05-.14 8.05 8.05 0 01-3.37.73 8.15 8.15 0 01-8.14-8.1 8.59 8.59 0 01.25-2A1 1 0 008 2.36a10.14 10.14 0 1014 11.69 1 1 0 00-.36-1.05zm-9.5 6.69A8.14 8.14 0 017.08 5.22v.27a10.15 10.15 0 0010.14 10.14 9.79 9.79 0 002.1-.22 8.11 8.11 0 01-7.18 4.32z"/>
                         </svg>
                     )}
                 </button>
