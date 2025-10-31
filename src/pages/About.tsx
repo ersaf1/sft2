@@ -39,7 +39,7 @@ const About = () => {
     <ul className="timeline timeline-vertical">
         <li>
             {/* PERBAIKAN: Tambahkan kelas text-white di sini */}
-            <div className="timeline-start timeline-box bg-dark text-white">
+            <div className="timeline-start timeline-box bg-dark text-dark">
                 <div className="font-bold">Tahun Pertama</div>
                 Mempelajari dasar-dasar pemrograman, algoritma, dan struktur data
             </div>
@@ -58,7 +58,7 @@ const About = () => {
                 </svg>
             </div>
             {/* PERBAIKAN: Tambahkan kelas text-white di sini */}
-            <div className="timeline-end timeline-box bg-dark text-white">
+            <div className="timeline-end timeline-box bg-dark text-dark">
                 <div className="font-bold">Tahun Kedua</div>
                 Mengembangkan aplikasi web dan mobile, serta game sederhana
             </div>
@@ -67,7 +67,7 @@ const About = () => {
         <li>
             <hr className="bg-secondary" />
             {/* PERBAIKAN: Tambahkan kelas text-white di sini */}
-            <div className="timeline-start timeline-box bg-dark text-white">
+            <div className="timeline-start timeline-box bg-dark text-dark">
                 <div className="font-bold">Tahun Ketiga</div>
                 Membuat proyek besar dan siap memasuki dunia industri
             </div>

@@ -44,13 +44,6 @@ const Gallery = () => {
         },
     ]
 
-    const achievements = [
-        { icon: "🏆", title: "Juara 2 Hackathon", description: "Kompetisi Regional 2024" },
-        { icon: "🥇", title: "Best Mobile App", description: "School Tech Fair 2024" },
-        { icon: "🎮", title: "Best Game Design", description: "Game Jam Competition" },
-        { icon: "⭐", title: "100% Graduation", description: "Semua siswa lulus PKL" },
-    ]
-
     return (
         <div className="container mx-auto px-4 py-12">
             {/* Header */}
@@ -60,21 +53,7 @@ const Gallery = () => {
                 <p className="text-xl text-gray-600">Dokumentasi kegiatan dan pencapaian kelas PPLG 2</p>
             </div>
 
-            {/* Achievements Section */}
-            <div className="mb-16">
-                <h2 className="text-3xl font-bold text-center mb-8">Pencapaian Kami</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {achievements.map((achievement, index) => (
-                        <div key={index} className="card bg-gradient-to-br from-primary to-secondary text-white shadow-xl">
-                            <div className="card-body items-center text-center">
-                                <div className="text-6xl mb-4">{achievement.icon}</div>
-                                <h3 className="card-title text-lg">{achievement.title}</h3>
-                                <p className="text-sm opacity-90">{achievement.description}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
+           
 
             {/* Activities Timeline */}
             <div className="mb-16">

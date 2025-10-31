@@ -47,7 +47,7 @@ const Home = () => {
                     <div className="glass-effect rounded-2xl p-8 hover:scale-105 transition-all simple-border">
                         <div className="text-center">
                             <div className="text-5xl mb-4">👥</div>
-                            <div className="text-5xl font-black mb-2 gradient-text">35+</div>
+                            <div className="text-5xl font-black mb-2 gradient-text">34</div>
                             <h3 className="text-lg font-bold text-primary mb-2">Anggota Kelas</h3>
                             <p className="text-dark/70">Developers berbakat</p>
                         </div>
@@ -56,16 +56,16 @@ const Home = () => {
                     <div className="glass-effect rounded-2xl p-8 hover:scale-105 transition-all simple-border">
                         <div className="text-center">
                             <div className="text-5xl mb-4">🏆</div>
-                            <div className="text-5xl font-black mb-2 gradient-text">20+</div>
-                            <h3 className="text-lg font-bold text-secondary mb-2">Proyek Selesai</h3>
-                            <p className="text-dark/70">Aplikasi & Game</p>
+                            <div className="text-5xl font-black mb-2 gradient-text">10+</div>
+                            <h3 className="text-lg font-bold text-secondary mb-2">Partisipasi</h3>
+                            <p className="text-dark/70">Event</p>
                         </div>
                     </div>
 
                     <div className="glass-effect rounded-2xl p-8 hover:scale-105 transition-all simple-border">
                         <div className="text-center">
                             <div className="text-5xl mb-4">⚡</div>
-                            <div className="text-5xl font-black mb-2 gradient-text">15+</div>
+                            <div className="text-5xl font-black mb-2 gradient-text">5+</div>
                             <h3 className="text-lg font-bold text-accent mb-2">Tech Stack</h3>
                             <p className="text-dark/70">Teknologi modern</p>
                         </div>
