@@ -13,40 +13,40 @@ const Members = () => {
     // Data anggota diperbarui: id, name, dan instagram (handle dibuat otomatis dari nama)
     // Data anggota diperbarui: id, name, instagram, dan role
     const members: Member[] = [
-        { id: 1, name: "AISHA AMELIA SAKHIY", instagram: "aisha.amelia.sakhiy", role: "Bendahara" },
-        { id: 2, name: "ANINDYA PUTRI", instagram: "anindya.putri", role: "Sekretaris" },
-        { id: 3, name: "APRILIA NUR AINY", instagram: "aprilia.nur.ainy", role: "Anggota" },
-        { id: 4, name: "ARNETA PUTRI HAMID", instagram: "arneta.putri.hamid", role: "Anggota" },
-        { id: 5, name: "ARYA RIDHO SAPUTRA", instagram: "arya.ridho.saputra", role: "Anggota" },
-        { id: 6, name: "ARYA SHAFA AKBAR", instagram: "arya.shafa.akbar", role: "Anggota" },
-        { id: 7, name: "BEKTI RAHAYU", instagram: "bekti.rahayu", role: "Anggota" },
-        { id: 8, name: "DAFFA SETYA HANDIKA", instagram: "daffa.setya.handika", role: "Anggota" },
-        { id: 9, name: "DEBYSA NURUL USTAROH", instagram: "debysa.nurul.ustaroh", role: "Anggota" },
-        { id: 10, name: "DIKA NURHIDAYAH", instagram: "dika.nurhidayah", role: "Anggota" },
-        { id: 11, name: "ERSAF SYIRAZI ARIFIN", instagram: "ersaf.syirazi.arifin", role: "Anggota" },
-        { id: 12, name: "FADLAN KAUTSAR ALBUKHARI", instagram: "fadlan.kautsar.albukhari", role: "Anggota" },
-        { id: 13, name: "FATIKA NUR FAHRANI", instagram: "fatika.nur.fahrani", role: "Anggota" },
-        { id: 14, name: "FIKO ANGGARA PUTRA", instagram: "fiko.anggara.putra", role: "Anggota" },
-        { id: 15, name: "HAFIZHA RAISYA KAMILA", instagram: "hafizha.raisya.kamila", role: "Anggota" },
-        { id: 16, name: "KHARISMA INKA PUTRI", instagram: "kharisma.inka.putri", role: "Anggota" },
-        { id: 17, name: "KIDUNG MABUMI PURWANING DUMADI", instagram: "kidung.mabumi.purwaning.dumadi", role: "Anggota" },
-        { id: 18, name: "LAILY ARIEKA NURASYIFA", instagram: "laily.arieka.nurasyifa", role: "Sekretaris" },
-        { id: 19, name: "LILIS GAYUH SAPUTRI", instagram: "lilis.gayuh.saputri", role: "Bendahara" },
-        { id: 20, name: "MUFILIH RAFILESEPPA", instagram: "mufilih.rafileseppa", role: "Anggota" },
-        { id: 21, name: "MUHAMMAD 'IZZUDDIN ZAKI", instagram: "muhammad.izzuddin.zaki", role: "Anggota" },
-        { id: 22, name: "MUHAMMAD ATSAL THARIQ RAMI", instagram: "muhammad.atsal.thariq.rami", role: "Anggota" },
-        { id: 23, name: "MUHAMMAD UBAIDILLAH MAULANA L", instagram: "muhammad.ubaidillah.maulana.l", role: "Anggota" },
-        { id: 24, name: "NABILA CAHYA NUGROHO", instagram: "nabila.cahya.nugroho", role: "Anggota" },
-        { id: 25, name: "NABILA SAFINATUNNAJAH", instagram: "nabila.safinatunnajah", role: "Wakil Ketua Kelas" },
+        { id: 1, name: "AISHA AMELIA SAKHIY", instagram: "aishameel", role: "Bendahara" },
+        { id: 2, name: "ANINDYA PUTRI", instagram: "arun4ru", role: "Sekretaris" },
+        { id: 3, name: "APRILIA NUR AINY", instagram: "aprlnrainisja", role: "Anggota" },
+        { id: 4, name: "ARNETA PUTRI HAMID", instagram: "_nnett4a", role: "Anggota" },
+        { id: 5, name: "ARYA RIDHO SAPUTRA", instagram: "alyakkk19_", role: "Anggota" },
+        { id: 6, name: "ARYA SHAFA AKBAR", instagram: "aryahags", role: "Anggota" },
+        { id: 7, name: "BEKTI RAHAYU", instagram: "v_ayu16", role: "Anggota" },
+        { id: 8, name: "DAFFA SETYA HANDIKA", instagram: "daffaastya", role: "Anggota" },
+        { id: 9, name: "DEBYSA NURUL USTAROH", instagram: "prettyiiesth_", role: "Anggota" },
+        { id: 10, name: "DIKA NURHIDAYAH", instagram: "_dknrhdyh", role: "Anggota" },
+        { id: 11, name: "ERSAF SYIRAZI ARIFIN", instagram: "3rsapp", role: "Anggota" },
+        { id: 12, name: "FADLAN KAUTSAR ALBUKHARI", instagram: "fdlnktsrrr_", role: "Anggota" },
+        { id: 13, name: "FATIKA NUR FAHRANI", instagram: "tikaanff_", role: "Anggota" },
+        { id: 14, name: "FIKO ANGGARA PUTRA", instagram: "bro_fkk", role: "Anggota" },
+        { id: 15, name: "HAFIZHA RAISYA KAMILA", instagram: "overjoyedecak_", role: "Anggota" },
+        { id: 16, name: "KHARISMA INKA PUTRI", instagram: "iam.rsmaa_", role: "Anggota" },
+        { id: 17, name: "KIDUNG MABUMI PURWANING DUMADI", instagram: "bumisolar", role: "Anggota" },
+        { id: 18, name: "LAILY ARIEKA NURASYIFA", instagram: "onlylailyasf", role: "Sekretaris" },
+        { id: 19, name: "LILIS GAYUH SAPUTRI", instagram: "_gystt", role: "Bendahara" },
+        { id: 20, name: "MUFILIH RAFILESEPPA", instagram: "_muflih_rafileseppa", role: "Anggota" },
+        { id: 21, name: "MUHAMMAD 'IZZUDDIN ZAKI", instagram: "imjackkkkkkkkk", role: "Anggota" },
+        { id: 22, name: "MUHAMMAD ATSAL THARIQ RAMI", instagram: "atsalllthrqq_", role: "Anggota" },
+        { id: 23, name: "MUHAMMAD UBAIDILLAH MAULANA L", instagram: "ubaiimlzrd", role: "Anggota" },
+        { id: 24, name: "NABILA CAHYA NUGROHO", instagram: "bilch_", role: "Anggota" },
+        { id: 25, name: "NABILA SAFINATUNNAJAH", instagram: "bil_sfnx", role: "Wakil Ketua Kelas" },
         { id: 26, name: "NADHIF AMYRTA FAHMA", instagram: "nadhif.amyrta.fahma", role: "Anggota" },
-        { id: 27, name: "NAILA SETYANINGTYAS", instagram: "naila.setyaningtyas", role: "Anggota" },
-        { id: 28, name: "NEYSA VASHTI RAMADANI", instagram: "neysa.vashti.ramadani", role: "Anggota" },
-        { id: 29, name: "NINA EVELYN", instagram: "nina.evelyn", role: "Anggota" },
-        { id: 30, name: "PRANANDA ARKAN RAMADHAN", instagram: "prananda.arkan.ramadhan", role: "Ketua Kelas" },
-        { id: 31, name: "RINA AULIA HUSNA", instagram: "rina.aulia.husna", role: "Anggota" },
-        { id: 32, name: "THOMAS ADHI PAMUNGKAS", instagram: "thomas.adhi.pamungkas", role: "Anggota" },
-        { id: 33, name: "TSANIA HASNA HANIFA", instagram: "tsania.hasna.hanifa", role: "Anggota" },
-        { id: 34, name: "UBAIDILLAH ATA AUFA", instagram: "ubaidillah.ata.aufa", role: "Anggota" },
+        { id: 27, name: "NAILA SETYANINGTYAS", instagram: "nylazaaa", role: "Anggota" },
+        { id: 28, name: "NEYSA VASHTI RAMADANI", instagram: "neiyvst", role: "Anggota" },
+        { id: 29, name: "NINA EVELYN", instagram: "orlle0.pie", role: "Anggota" },
+        { id: 30, name: "PRANANDA ARKAN RAMADHAN", instagram: "arkanr_rr", role: "Ketua Kelas" },
+        { id: 31, name: "RINA AULIA HUSNA", instagram: "rrinaauliaa", role: "Anggota" },
+        { id: 32, name: "THOMAS ADHI PAMUNGKAS", instagram: "tthomaaasss", role: "Anggota" },
+        { id: 33, name: "TSANIA HASNA HANIFA", instagram: "hsnhanifa__", role: "Anggota" },
+        { id: 34, name: "UBAIDILLAH ATA AUFA", instagram: "atalaginih19_", role: "Anggota" },
     ]
 
     const filteredMembers = members.filter(member =>
@@ -64,24 +64,28 @@ const Members = () => {
             </div>
 
             {/* Search Bar */}
-            <div className="max-w-md mx-auto mb-12">
-                <div className="form-control">
-                    <div className="input-group">
-                        <input
-                            type="text"
-                            placeholder="Cari anggota, role, atau skill..."
-                            className="input input-bordered w-full"
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                        />
-                        <button className="btn btn-square btn-primary">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
+           <div className="max-w-md mx-auto mb-12">
+    <div className="form-control">
+        {/* GANTI 'input-group' DENGAN 'join' */}
+        <div className="join w-full"> 
+            <input
+                type="text"
+                placeholder="Cari anggota, role, atau skill..."
+                // TAMBAHAN: join-item untuk menggabungkan elemen
+                // TAMBAHAN: input-md dan w-full untuk ukuran dan lebar penuh
+                className="input input-bordered w-full input-md join-item"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            {/* PASTIKAN BUTTON JUGA MENGGUNAKAN join-item DAN UKURAN YANG SAMA */}
+            <button className="btn btn-square btn-primary btn-md join-item"> 
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
 
             {/* Stats removed as requested */}
 
