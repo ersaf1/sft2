@@ -10,7 +10,7 @@ const Footer = () => {
 
             <aside>
                 <p className="font-bold text-lg">
-                    PPLG 2 - <span className="text-primary">eseftwo</span>
+                    PPLG 2 - <span className="gradient-text">eseftwo</span>
                 </p>
                 <p>Pengembangan Perangkat Lunak dan Gim</p>
                 <p className="text-sm mt-2">Copyright © 2024 - All right reserved</p>

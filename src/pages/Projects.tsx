@@ -22,7 +22,7 @@ const Projects = () => {
     return (
         <div className="container mx-auto px-4 py-12">
             <div className="text-center mb-8">
-                <h1 className="text-4xl font-black mb-2">Proyek <span className="text-primary">eseftwo</span></h1>
+                <h1 className="text-4xl font-black mb-2">Proyek <span className="gradient-text">eseftwo</span></h1>
                 <p className="text-base-content/70">Kumpulan proyek buatan siswa — coba jelajahi dan kontribusi</p>
             </div>
 
@@ -43,7 +43,7 @@ const Projects = () => {
                                 {p.tech.map((t, i) => <span key={i} className="badge badge-outline">{t}</span>)}
                             </div>
                             <div className="card-actions justify-end mt-4">
-                                <span className={`badge ${p.status === 'completed' ? 'badge-primary' : p.status === 'ongoing' ? 'badge-secondary' : 'badge-accent'}`}>{p.status}</span>
+                                <span className={`badge ${p.status === 'completed' ? 'badge-success' : p.status === 'ongoing' ? 'badge-primary' : 'badge-warning'}`}>{p.status}</span>
                             </div>
                         </div>
                     </div>

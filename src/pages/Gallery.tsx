@@ -48,7 +48,7 @@ const Gallery = () => {
         <div className="container mx-auto px-4 py-12">
             {/* Header */}
             <div className="text-center mb-12">
-                <h1 className="text-5xl font-bold mb-4">Galeri <span className="text-primary">eseftwo</span></h1>
+                <h1 className="text-5xl font-bold mb-4">Galeri <span className="gradient-text">eseftwo</span></h1>
                 <div className="divider max-w-xs mx-auto"></div>
                 <p className="text-xl text-gray-600">Dokumentasi kegiatan dan pencapaian kelas PPLG 2</p>
             </div>
@@ -91,13 +91,13 @@ const Gallery = () => {
                     {[...Array(9)].map((_, index) => (
                         <div
                             key={index}
-                            className="group relative aspect-[4/3] bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 rounded-2xl overflow-hidden card-hover cursor-pointer"
+                            className="group relative aspect-[4/3] bg-gradient-to-br from-primary/10 via-primary/5 to-primary/10 rounded-2xl overflow-hidden card-hover cursor-pointer"
                         >
                             <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
                                 <div className="mb-4 p-4 rounded-full bg-base-100/50 backdrop-blur-sm">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
-                                        className="h-16 w-16 text-primary/60 group-hover:text-primary transition-colors"
+                                        className="h-16 w-16 text-dark/40 group-hover:text-primary transition-colors"
                                         fill="none"
                                         viewBox="0 0 24 24"
                                         stroke="currentColor"
@@ -128,13 +128,13 @@ const Gallery = () => {
                     {[1, 2, 3, 4].map((index) => (
                         <div
                             key={index}
-                            className="group relative aspect-video bg-gradient-to-br from-secondary/10 via-accent/10 to-primary/10 rounded-2xl overflow-hidden card-hover cursor-pointer"
+                            className="group relative aspect-video bg-gradient-to-br from-primary/10 via-primary/5 to-primary/10 rounded-2xl overflow-hidden card-hover cursor-pointer"
                         >
                             <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
                                 <div className="mb-4 p-4 rounded-full bg-base-100/50 backdrop-blur-sm group-hover:scale-110 transition-transform">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
-                                        className="h-20 w-20 text-secondary/60 group-hover:text-secondary transition-colors"
+                                        className="h-20 w-20 text-dark/40 group-hover:text-primary transition-colors"
                                         fill="none"
                                         viewBox="0 0 24 24"
                                         stroke="currentColor"
@@ -165,7 +165,7 @@ const Gallery = () => {
             </div>
 
             {/* Social Media CTA */}
-            <div className="card bg-gradient-to-r from-primary to-secondary text-white shadow-2xl">
+            <div className="card bg-gradient-to-r from-primary to-primary text-white shadow-2xl">
                 <div className="card-body items-center text-center">
                     <h2 className="card-title text-3xl mb-4">Ikuti Kami di Social Media!</h2>
                     <p className="mb-6">

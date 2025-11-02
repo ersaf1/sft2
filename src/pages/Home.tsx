@@ -22,8 +22,8 @@ const Home = () => {
 
                             <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-dark/70 leading-relaxed">
                                 Kelas yang fokus pada pengembangan perangkat lunak dan game dengan
-                                <span className="text-primary font-semibold"> teknologi modern</span> dan
-                                <span className="text-secondary font-semibold"> kreativitas tanpa batas</span>
+                                <span className="gradient-text font-semibold"> teknologi modern</span> dan
+                                <span className="gradient-text font-semibold"> kreativitas tanpa batas</span>
                             </p>
 
                             {/* Tombol Navigasi - Jarak vertikal sudah diatur dalam Hero Section ini sendiri */}
@@ -48,7 +48,7 @@ const Home = () => {
                         <div className="text-center">
                             <div className="text-5xl mb-4">👥</div>
                             <div className="text-5xl font-black mb-2 gradient-text">34</div>
-                            <h3 className="text-lg font-bold text-primary mb-2">Anggota Kelas</h3>
+                            <h3 className="text-lg font-bold gradient-text mb-2">Anggota Kelas</h3>
                             <p className="text-dark/70">Developers berbakat</p>
                         </div>
                     </div>
@@ -57,7 +57,7 @@ const Home = () => {
                         <div className="text-center">
                             <div className="text-5xl mb-4">🏆</div>
                             <div className="text-5xl font-black mb-2 gradient-text">10+</div>
-                            <h3 className="text-lg font-bold text-secondary mb-2">Partisipasi</h3>
+                            <h3 className="text-lg font-bold gradient-text mb-2">Partisipasi</h3>
                             <p className="text-dark/70">Event</p>
                         </div>
                     </div>
@@ -66,7 +66,7 @@ const Home = () => {
                         <div className="text-center">
                             <div className="text-5xl mb-4">⚡</div>
                             <div className="text-5xl font-black mb-2 gradient-text">5+</div>
-                            <h3 className="text-lg font-bold text-accent mb-2">Tech Stack</h3>
+                            <h3 className="text-lg font-bold gradient-text mb-2">Tech Stack</h3>
                             <p className="text-dark/70">Teknologi modern</p>
                         </div>
                     </div>
@@ -92,7 +92,7 @@ const Home = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                     </svg>
                 </div>
-                <h3 className="card-title text-primary">Web Development</h3>
+                <h3 className="card-title gradient-text">Web Development</h3>
                 <p className="text-dark/70">HTML, CSS, JavaScript, React, TypeScript</p>
             </div>
         </div>
@@ -105,7 +105,7 @@ const Home = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                     </svg>
                 </div>
-                <h3 className="card-title text-secondary">Mobile Development</h3>
+                <h3 className="card-title gradient-text">Mobile Development</h3>
                 <p className="text-dark/70">Android, Kotlin, Flutter</p>
             </div>
         </div>
@@ -118,7 +118,7 @@ const Home = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
                     </svg>
                 </div>
-                <h3 className="card-title text-accent">Game Development</h3>
+                <h3 className="card-title gradient-text">Game Development</h3>
                 <p className="text-dark/70">Unity, Unreal Engine, Godot</p>
             </div>
         </div>
@@ -131,7 +131,7 @@ const Home = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
                     </svg>
                 </div>
-                <h3 className="card-title text-primary">Database</h3>
+                <h3 className="card-title gradient-text">Database</h3>
                 <p className="text-dark/70">MySQL, PostgreSQL, MongoDB</p>
             </div>
         </div>
@@ -144,7 +144,7 @@ const Home = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
                     </svg>
                 </div>
-                <h3 className="card-title text-secondary">UI/UX Design</h3>
+                <h3 className="card-title gradient-text">UI/UX Design</h3>
                 <p className="text-dark/70">Figma, Adobe XD</p>
             </div>
         </div>
@@ -157,7 +157,7 @@ const Home = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                 </div>
-                <h3 className="card-title text-accent">Backend Development</h3>
+                <h3 className="card-title gradient-text">Backend Development</h3>
                 <p className="text-dark/70">Node.js, Express, Laravel</p>
             </div>
         </div>

@@ -58,7 +58,7 @@ const Members = () => {
         <div className="container mx-auto px-4 py-12">
             {/* Header */}
             <div className="text-center mb-12">
-                <h1 className="text-5xl font-bold mb-4">Anggota <span className="text-primary">eseftwo</span></h1>
+                <h1 className="text-5xl font-bold mb-4">Anggota <span className="gradient-text">eseftwo</span></h1>
                 <div className="divider max-w-xs mx-auto"></div>
                 <p className="text-xl text-gray-600">Para developer dan game developer berbakat</p>
             </div>
