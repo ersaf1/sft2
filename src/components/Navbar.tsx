@@ -59,7 +59,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="flex gap-3 items-center pl-2">
-                    <img src="/sft.png" alt="SFT logo" className="h-10 md:h-12 w-auto" />
+                    <img src="/sft.png" alt="SFT logo" className="h-20 md:h-24 w-auto" />
                     <span className="gradient-text text-xl md:text-2xl font-black leading-none tracking-tight">ESEFTWO</span>
                 </div>
             </div>
