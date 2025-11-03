@@ -123,15 +123,13 @@ const About = () => {
                         <div className="badge badge-primary badge-lg">JavaScript</div>
                         <div className="badge badge-primary badge-lg">TypeScript</div>
                         <div className="badge badge-primary badge-lg">React</div>
-                        <div className="badge badge-success badge-lg">Node.js</div>
-                        <div className="badge badge-warning badge-lg">Python</div>
+                        <div className="badge badge-primary badge-lg">Python</div>
                         <div className="badge badge-primary badge-lg">Java</div>
                         <div className="badge badge-primary badge-lg">Kotlin</div>
                         <div className="badge badge-primary badge-lg">Flutter</div>
                         <div className="badge badge-primary badge-lg">Unity</div>
-                        <div className="badge badge-primary badge-lg">Unreal Engine</div>
-                        <div className="badge badge-success badge-lg">MySQL</div>
-                        <div className="badge badge-warning badge-lg">MongoDB</div>
+                        <div className="badge badge-primary badge-lg">Node.js</div>
+                        <div className="badge badge-primary badge-lg">Mysql</div>
                         <div className="badge badge-primary badge-lg">Git</div>
                         <div className="badge badge-primary badge-lg">Figma</div>
                     </div>
