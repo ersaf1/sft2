@@ -1,51 +1,77 @@
-import { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+
+// ************************************
+// * 1. Definisi Komponen & Hooks
+// ************************************
+
+const getInitialTheme = () => {
+    try {
+        const stored = localStorage.getItem('theme');
+        if (stored) return stored;
+        
+        // Cek preferensi sistem, default ke 'eseftwo-light' (mode terang) jika sistem memilih terang
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            return 'eseftwo-light';
+        }
+        
+        // Default mode gelap (minimalist)
+        return 'minimalist';
+    } catch {
+        return 'minimalist';
+    }
+}
 
 const Navbar = () => {
-    const getInitialTheme = () => {
-        try {
-            const stored = localStorage.getItem('theme')
-            if (stored) return stored
-            // if user has no stored preference, use system preference
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-                return 'eseftwo-light'
-            }
-            return 'minimalist'
-        } catch {
-            return 'minimalist'
-        }
-    }
+    // State untuk tema saat ini
+    const [theme, setTheme] = useState(getInitialTheme);
+    // State untuk memicu animasi ikon saat toggle
+    const [animating, setAnimating] = useState(false);
+    const location = useLocation();
 
-    const [theme, setTheme] = useState(getInitialTheme)
-    const [animating, setAnimating] = useState(false)
-    const location = useLocation()
+    // ************************************
+    // * 2. Efek Samping (Side Effects)
+    // ************************************
 
     useEffect(() => {
-        // apply stored theme on mount
-        document.documentElement.setAttribute('data-theme', theme)
-    }, [theme])
+        // Terapkan tema yang tersimpan/default ke elemen <html> pada saat mount
+        document.documentElement.setAttribute('data-theme', theme);
+    }, [theme]);
+
+    // ************************************
+    // * 3. Fungsi Toggle Tema
+    // ************************************
 
     const toggleTheme = () => {
-        // trigger quick spin/scale animation
-        setAnimating(true)
-        window.setTimeout(() => setAnimating(false), 500)
-        // two-state toggle: white (eseftwo-light) <-> dark (minimalist)
-        const newTheme = theme === 'eseftwo-light' ? 'minimalist' : 'eseftwo-light'
-        setTheme(newTheme)
+        // Mulai animasi
+        setAnimating(true);
+        // Hentikan animasi setelah 500ms
+        window.setTimeout(() => setAnimating(false), 500);
+        
+        // Logika untuk berganti tema
+        const newTheme = theme === 'eseftwo-light' ? 'minimalist' : 'eseftwo-light';
+        setTheme(newTheme);
+        
         try {
-            localStorage.setItem('theme', newTheme)
+            localStorage.setItem('theme', newTheme);
         } catch {}
-        document.documentElement.setAttribute('data-theme', newTheme)
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
     }
 
-    // small helper to show tooltip text including whether system prefers light/dark
-    const systemPrefersLight = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches
+    // Helper untuk teks tooltip
+    const systemPrefersLight = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
     const tooltipText = theme === 'eseftwo-light'
         ? `Mode: Terang${systemPrefersLight ? ' (dipilih oleh sistem)' : ''}`
-        : `Mode: Gelap${!systemPrefersLight ? ' (dipilih oleh sistem)' : ''}`
+        : `Mode: Gelap${!systemPrefersLight ? ' (dipilih oleh sistem)' : ''}`;
 
-    const isActive = (path: string) => location.pathname === path
+    // Helper untuk menentukan item navigasi yang aktif
+    const isActive = (path: string) => location.pathname === path;
 
+    // ************************************
+    // * 4. Struktur JSX (Tampilan Navbar)
+    // ************************************
+    
     return (
         <div className="navbar glass-effect sticky top-0 z-50">
             <div className="navbar-start">
@@ -63,6 +89,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="flex gap-3 items-center pl-2">
+                    {/* Gantilah '/sft.png' dengan path logo Anda yang sebenarnya */}
                     <img src="/sft.png" alt="SFT logo" className="h-20 md:h-24 w-auto" />
                     <span className="gradient-text text-xl md:text-2xl font-black leading-none tracking-tight">ESEFTWO</span>
                 </div>
@@ -75,33 +102,36 @@ const Navbar = () => {
                     <li><Link to="/gallery" className={`text-base ${isActive('/gallery') ? 'active' : ''}`}>Galeri</Link></li>
                 </ul>
             </div>
+
+            {/* ************************************ */}
+            {/* * 5. PERBAIKAN UTAMA: Tombol Theme * */}
+            {/* ************************************ */}
             <div className="navbar-end lg:gap-2">
-                {/* Floating on small screens for better reachability */}
-                <div className="fixed right-3 top-3 z-[60] lg:static lg:right-auto lg:top-auto">
+                {/* Hapus container fixed yang membuat tombol melayang di luar navbar */}
                 <button
                     onClick={toggleTheme}
                     aria-label="Toggle light/dark theme"
                     title={tooltipText}
                     aria-pressed={theme === 'eseftwo-light'}
-                    className="btn btn-circle bg-base-100/80 text-base-content border border-base-content/20 hover:border-primary/40 hover:bg-base-100/90 shadow-lg backdrop-blur-md transition-all"
+                    // Menggunakan 'btn-ghost' dan 'btn-square' untuk mendapatkan tampilan kotak yang sesuai dengan screenshot.
+                    className="btn btn-ghost btn-square text-base-content shadow-none transition-all"
                 >
                     {theme === 'eseftwo-light' ? (
-                        // Sun icon for light mode
+                        // Ikon Matahari (Sun icon for light mode)
                         <svg xmlns="http://www.w3.org/2000/svg" className={`h-6 w-6 text-base-content ${animating ? 'animate-toggle' : ''}`} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                             <path d="M12 17.5a5.5 5.5 0 100-11 5.5 5.5 0 000 11zm0-9a3.5 3.5 0 110 7 3.5 3.5 0 010-7z"/>
                             <path d="M13 1h-2v3h2V1zm0 19h-2v3h2v-3zM4 11H1v2h3v-2zm19 0h-3v2h3v-2zM5.99 4.58L4.58 5.99l1.41 1.41 1.42-1.41-1.42-1.41zm12.02 12.02l-1.41 1.41 1.41 1.42 1.42-1.42-1.42-1.41zM18.01 4.58l1.42 1.41 1.41-1.41-1.41-1.42-1.42 1.42zM5.99 18.01l1.41-1.41-1.41-1.42-1.42 1.42 1.42 1.41z"/>
                         </svg>
                     ) : (
-                        // Moon icon for dark mode
+                        // Ikon Bulan (Moon icon for dark mode)
                         <svg xmlns="http://www.w3.org/2000/svg" className={`h-6 w-6 text-base-content ${animating ? 'animate-toggle' : ''}`} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M21.64 13a1 1 0 00-1.05-.14 8.05 8.05 0 01-3.37.73 8.15 8.15 0 01-8.14-8.1 8.59 8.59 0 01.25-2A1 1 0 008 2.36a10.14 10.14 0 1014 11.69 1 1 0 00-.36-1.05zm-9.5 6.69A8.14 8.14 0 017.08 5.22v.27a10.15 10.15 0 0010.14 10.14 9.79 9.79 0 002.1-.22 8.11 8.11 0 01-7.18 4.32z"/>
                         </svg>
                     )}
                 </button>
-                </div>
             </div>
         </div>
     )
 }
 
-export default Navbar
+export default Navbar;

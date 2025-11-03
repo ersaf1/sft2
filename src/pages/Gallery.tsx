@@ -165,7 +165,7 @@ const Gallery = () => {
             </div>
 
             {/* Social Media CTA */}
-            <div className="card bg-gradient-to-r from-primary to-primary text-white shadow-2xl">
+            <div className="card bg-gradient-to-r from-primary to-primary text-dark shadow-2xl">
                 <div className="card-body items-center text-center">
                     <h2 className="card-title text-3xl mb-4">Ikuti Kami di Social Media!</h2>
                     <p className="mb-6">

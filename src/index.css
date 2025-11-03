@@ -398,6 +398,25 @@
     background: rgba(var(--p-primary-rgb), 0.05);
     transform: translateY(-1px);
   }
+  /* Tambahkan ini ke file CSS global Anda */
+@keyframes spin-scale {
+    0% {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: rotate(180deg) scale(0.5);
+        opacity: 0.5;
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+        opacity: 1;
+    }
+}
+
+.animate-toggle {
+    animation: spin-scale 0.5s ease-in-out;
+}
 }
 
 /* Custom scrollbar */
