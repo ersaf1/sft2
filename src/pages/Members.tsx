@@ -5,48 +5,48 @@ interface Member {
     name: string
     instagram?: string
     role?: string
+    photo?: string
 }
 
 const Members = () => {
     const [searchTerm, setSearchTerm] = useState('')
 
-    // Data anggota diperbarui: id, name, dan instagram (handle dibuat otomatis dari nama)
-    // Data anggota diperbarui: id, name, instagram, dan role
+    // Data anggota diperbarui: id, name, instagram, role, dan photo
     const members: Member[] = [
-        { id: 1, name: "AISHA AMELIA SAKHIY", instagram: "aishameel", role: "Bendahara" },
-        { id: 2, name: "ANINDYA PUTRI", instagram: "arun4ru", role: "Sekretaris" },
-        { id: 3, name: "APRILIA NUR AINY", instagram: "aprlnrainisja", role: "Anggota" },
-        { id: 4, name: "ARNETA PUTRI HAMID", instagram: "_nnett4a", role: "Anggota" },
-        { id: 5, name: "ARYA RIDHO SAPUTRA", instagram: "alyakkk19_", role: "Anggota" },
-        { id: 6, name: "ARYA SHAFA AKBAR", instagram: "aryahags", role: "Anggota" },
-        { id: 7, name: "BEKTI RAHAYU", instagram: "v_ayu16", role: "Anggota" },
-        { id: 8, name: "DAFFA SETYA HANDIKA", instagram: "daffaastya", role: "Anggota" },
-        { id: 9, name: "DEBYSA NURUL USTAROH", instagram: "prettyiiesth_", role: "Anggota" },
-        { id: 10, name: "DIKA NURHIDAYAH", instagram: "_dknrhdyh", role: "Anggota" },
-        { id: 11, name: "ERSAF SYIRAZI ARIFIN", instagram: "3rsapp", role: "Anggota" },
-        { id: 12, name: "FADLAN KAUTSAR ALBUKHARI", instagram: "fdlnktsrrr_", role: "Anggota" },
-        { id: 13, name: "FATIKA NUR FAHRANI", instagram: "tikaanff_", role: "Anggota" },
-        { id: 14, name: "FIKO ANGGARA PUTRA", instagram: "bro_fkk", role: "Anggota" },
-        { id: 15, name: "HAFIZHA RAISYA KAMILA", instagram: "overjoyedecak_", role: "Anggota" },
-        { id: 16, name: "KHARISMA INKA PUTRI", instagram: "iam.rsmaa_", role: "Anggota" },
-        { id: 17, name: "KIDUNG MABUMI PURWANING DUMADI", instagram: "bumisolar", role: "Anggota" },
-        { id: 18, name: "LAILY ARIEKA NURASYIFA", instagram: "onlylailyasf", role: "Sekretaris" },
-        { id: 19, name: "LILIS GAYUH SAPUTRI", instagram: "_gystt", role: "Bendahara" },
-        { id: 20, name: "MUFILIH RAFILESEPPA", instagram: "_muflih_rafileseppa", role: "Anggota" },
-        { id: 21, name: "MUHAMMAD 'IZZUDDIN ZAKI", instagram: "imjackkkkkkkkk", role: "Anggota" },
-        { id: 22, name: "MUHAMMAD ATSAL THARIQ RAMI", instagram: "atsalllthrqq_", role: "Anggota" },
-        { id: 23, name: "MUHAMMAD UBAIDILLAH MAULANA L", instagram: "ubaiimlzrd", role: "Anggota" },
-        { id: 24, name: "NABILA CAHYA NUGROHO", instagram: "bilch_", role: "Anggota" },
-        { id: 25, name: "NABILA SAFINATUNNAJAH", instagram: "bil_sfnx", role: "Wakil Ketua Kelas" },
-        { id: 26, name: "NADHIF AMYRTA FAHMA", instagram: "nadhif.amyrta.fahma", role: "Anggota" },
-        { id: 27, name: "NAILA SETYANINGTYAS", instagram: "nylazaaa", role: "Anggota" },
-        { id: 28, name: "NEYSA VASHTI RAMADANI", instagram: "neiyvst", role: "Anggota" },
-        { id: 29, name: "NINA EVELYN", instagram: "orlle0.pie", role: "Anggota" },
-        { id: 30, name: "PRANANDA ARKAN RAMADHAN", instagram: "arkanr_rr", role: "Ketua Kelas" },
-        { id: 31, name: "RINA AULIA HUSNA", instagram: "rrinaauliaa", role: "Anggota" },
-        { id: 32, name: "THOMAS ADHI PAMUNGKAS", instagram: "tthomaaasss", role: "Anggota" },
-        { id: 33, name: "TSANIA HASNA HANIFA", instagram: "hsnhanifa__", role: "Anggota" },
-        { id: 34, name: "UBAIDILLAH ATA AUFA", instagram: "atalaginih19_", role: "Anggota" },
+        { id: 1, name: "AISHA AMELIA SAKHIY", instagram: "aishameel", role: "Bendahara", photo: "/members/1.png" },
+        { id: 2, name: "ANINDYA PUTRI", instagram: "arun4ru", role: "Sekretaris", photo: "/members/2.png" },
+        { id: 3, name: "APRILIA NUR AINY", instagram: "aprlnrainisja", role: "Anggota", photo: "/members/3.png" },
+        { id: 4, name: "ARNETA PUTRI HAMID", instagram: "_nnett4a", role: "Anggota", photo: "/members/4.png" },
+        { id: 5, name: "ARYA RIDHO SAPUTRA", instagram: "alyakkk19_", role: "Anggota", photo: "/members/5.png" },
+        { id: 6, name: "ARYA SHAFA AKBAR", instagram: "aryahags", role: "Anggota", photo: "/members/6.png" },
+        { id: 7, name: "BEKTI RAHAYU", instagram: "v_ayu16", role: "Anggota", photo: "/members/7.png" },
+        { id: 8, name: "DAFFA SETYA HANDIKA", instagram: "daffaastya", role: "Anggota", photo: "/members/8.png" },
+        { id: 9, name: "DEBYSA NURUL USTAROH", instagram: "prettyiiesth_", role: "Anggota", photo: "/members/9.png" },
+        { id: 10, name: "DIKA NURHIDAYAH", instagram: "_dknrhdyh", role: "Anggota", photo: "/members/10.png" },
+        { id: 11, name: "ERSAF SYIRAZI ARIFIN", instagram: "3rsapp", role: "Anggota", photo: "/members/11.png" },
+        { id: 12, name: "FADLAN KAUTSAR ALBUKHARI", instagram: "fdlnktsrrr_", role: "Anggota", photo: "/members/12.png" },
+        { id: 13, name: "FATIKA NUR FAHRANI", instagram: "tikaanff_", role: "Anggota", photo: "/members/13.png" },
+        { id: 14, name: "FIKO ANGGARA PUTRA", instagram: "bro_fkk", role: "Anggota", photo: "/members/14.png" },
+        { id: 15, name: "HAFIZHA RAISYA KAMILA", instagram: "overjoyedecak_", role: "Anggota", photo: "/members/15.png" },
+        { id: 16, name: "KHARISMA INKA PUTRI", instagram: "iam.rsmaa_", role: "Anggota", photo: "/members/16.png" },
+        { id: 17, name: "KIDUNG MABUMI PURWANING DUMADI", instagram: "bumisolar", role: "Anggota", photo: "/members/17.png" },
+        { id: 18, name: "LAILY ARIEKA NURASYIFA", instagram: "onlylailyasf", role: "Sekretaris", photo: "/members/18.png" },
+        { id: 19, name: "LILIS GAYUH SAPUTRI", instagram: "_gystt", role: "Bendahara", photo: "/members/19.png" },
+        { id: 20, name: "MUFILIH RAFILESEPPA", instagram: "_muflih_rafileseppa", role: "Anggota", photo: "/members/20.png" },
+        { id: 21, name: "MUHAMMAD 'IZZUDDIN ZAKI", instagram: "imjackkkkkkkkk", role: "Anggota", photo: "/members/21.png" },
+        { id: 22, name: "MUHAMMAD ATSAL THARIQ RAMI", instagram: "atsalllthrqq_", role: "Anggota", photo: "/members/22.png" },
+        { id: 23, name: "MUHAMMAD UBAIDILLAH MAULANA L", instagram: "ubaiimlzrd", role: "Anggota", photo: "/members/23.png" },
+        { id: 24, name: "NABILA CAHYA NUGROHO", instagram: "bilch_", role: "Anggota", photo: "/members/24.png" },
+        { id: 25, name: "NABILA SAFINATUNNAJAH", instagram: "bil_sfnx", role: "Wakil Ketua Kelas", photo: "/members/25.png" },
+        { id: 26, name: "NADHIF AMYRTA FAHMA", instagram: "nadhif.amyrta.fahma", role: "Anggota", photo: "/members/26.png" },
+        { id: 27, name: "NAILA SETYANINGTYAS", instagram: "nylazaaa", role: "Anggota", photo: "/members/27.png" },
+        { id: 28, name: "NEYSA VASHTI RAMADANI", instagram: "neiyvst", role: "Anggota", photo: "/members/28.png" },
+        { id: 29, name: "NINA EVELYN", instagram: "orlle0.pie", role: "Anggota", photo: "/members/29.png" },
+        { id: 30, name: "PRANANDA ARKAN RAMADHAN", instagram: "arkanr_rr", role: "Ketua Kelas", photo: "/members/30.png" },
+        { id: 31, name: "RINA AULIA HUSNA", instagram: "rrinaauliaa", role: "Anggota", photo: "/members/31.png" },
+        { id: 32, name: "THOMAS ADHI PAMUNGKAS", instagram: "tthomaaasss", role: "Anggota", photo: "/members/32.png" },
+        { id: 33, name: "TSANIA HASNA HANIFA", instagram: "hsnhanifa__", role: "Anggota", photo: "/members/33.png" },
+        { id: 34, name: "UBAIDILLAH ATA AUFA", instagram: "atalaginih19_", role: "Anggota", photo: "/members/34.png" },
     ]
 
     const filteredMembers = members.filter(member =>
@@ -94,9 +94,23 @@ const Members = () => {
                 {filteredMembers.map((member) => (
                     <div key={member.id} className="card bg-base-100 shadow-xl card-hover">
                         <div className="card-body">
-                            <div className="avatar placeholder mb-4">
-                                <div className="bg-primary text-neutral-content rounded-full w-20">
-                                    <span className="text-3xl">{member.name.charAt(0)}</span>
+                            <div className="avatar mb-4">
+                                <div className="w-20 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                    {member.photo ? (
+                                        <img 
+                                            src={member.photo} 
+                                            alt={member.name}
+                                            className="object-cover"
+                                            onError={(e) => {
+                                                // Fallback to placeholder if image fails to load
+                                                e.currentTarget.style.display = 'none';
+                                                e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                                            }}
+                                        />
+                                    ) : null}
+                                    <div className={`bg-primary text-neutral-content rounded-full w-20 h-20 flex items-center justify-center ${member.photo ? 'hidden' : ''}`}>
+                                        <span className="text-3xl">{member.name.charAt(0)}</span>
+                                    </div>
                                 </div>
                             </div>
 

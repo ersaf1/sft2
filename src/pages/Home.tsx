@@ -49,7 +49,7 @@ const Home = () => {
                             <div className="text-5xl mb-4">👥</div>
                             <div className="text-5xl font-black mb-2 gradient-text">34</div>
                             <h3 className="text-lg font-bold gradient-text mb-2">Anggota Kelas</h3>
-                            <p className="text-dark/70">Developers berbakat</p>
+                            <p className="text-dark/70">Developers</p>
                         </div>
                     </div>
 
@@ -106,7 +106,7 @@ const Home = () => {
                     </svg>
                 </div>
                 <h3 className="card-title gradient-text">Mobile Development</h3>
-                <p className="text-dark/70">Android, Kotlin, Flutter</p>
+                <p className="text-dark/70">Android, Flutter</p>
             </div>
         </div>
 
@@ -119,7 +119,7 @@ const Home = () => {
                     </svg>
                 </div>
                 <h3 className="card-title gradient-text">Game Development</h3>
-                <p className="text-dark/70">Unity, Unreal Engine, Godot</p>
+                <p className="text-dark/70">Unity</p>
             </div>
         </div>
 
@@ -132,7 +132,7 @@ const Home = () => {
                     </svg>
                 </div>
                 <h3 className="card-title gradient-text">Database</h3>
-                <p className="text-dark/70">MySQL, PostgreSQL, MongoDB</p>
+                <p className="text-dark/70">MySQL</p>
             </div>
         </div>
 
@@ -145,7 +145,7 @@ const Home = () => {
                     </svg>
                 </div>
                 <h3 className="card-title gradient-text">UI/UX Design</h3>
-                <p className="text-dark/70">Figma, Adobe XD</p>
+                <p className="text-dark/70">Figma</p>
             </div>
         </div>
 
@@ -158,7 +158,7 @@ const Home = () => {
                     </svg>
                 </div>
                 <h3 className="card-title gradient-text">Backend Development</h3>
-                <p className="text-dark/70">Node.js, Express, Laravel</p>
+                <p className="text-dark/70">Node.js,Laravel</p>
             </div>
         </div>
     </div>
