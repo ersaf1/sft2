@@ -383,6 +383,119 @@
     background: linear-gradient(to bottom, rgba(55, 65, 81, 1), rgba(31, 41, 55, 1));
   }
 
+  /* Splash / Loading screen styles */
+  .splash {
+    background: linear-gradient(180deg, rgba(3,6,2,0.88), rgba(6,10,6,0.72));
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  .splash-card {
+    text-align: center;
+  }
+
+  .splash-logo {
+    /* base: mobile-friendly, medium size */
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    /* smoother entrance; rotation removed entirely; gentle breathe afterwards */
+    animation: logo-pop 1400ms cubic-bezier(0.22, 0.9, 0.3, 1) both,
+               logo-breathe 3000ms ease-in-out 1400ms infinite alternate;
+    filter: drop-shadow(0 16px 40px rgba(var(--p-primary-rgb), 0.16));
+    border-radius: 18px;
+    transform-origin: center;
+    will-change: transform, opacity, filter;
+  }
+
+  @media (min-width: 768px) {
+    .splash-logo {
+      width: 360px;
+      height: 360px;
+    }
+  }
+
+  .splash-title {
+    margin-top: 6px;
+    letter-spacing: -0.02em;
+    animation: text-appear 1200ms cubic-bezier(0.22, 0.9, 0.3, 1) both 220ms;
+    will-change: transform, opacity;
+  }
+
+  .splash-slogan {
+    margin-top: -4px;
+    opacity: 0.95;
+    color: rgba(255,255,255,0.9);
+    animation: text-appear 1200ms cubic-bezier(0.22, 0.9, 0.3, 1) both 420ms;
+    will-change: transform, opacity;
+  }
+
+  .splash-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fade-in 700ms ease both 360ms;
+  }
+
+  .loader-svg {
+    /* slower, calm spinner but not too slow */
+    animation: spin 2s linear infinite;
+    transform-origin: 50% 50%;
+    will-change: transform, opacity;
+    opacity: 0.95;
+  }
+
+  @keyframes logo-pop {
+    0% {
+      transform: scale(0.9) translateY(6px);
+      opacity: 0;
+      filter: blur(6px) saturate(0.95);
+    }
+    60% {
+      transform: scale(1.03) translateY(-6px);
+      opacity: 1;
+      filter: blur(0) saturate(1.02);
+    }
+    85% {
+      transform: scale(1.01) translateY(-3px);
+      opacity: 1;
+      filter: blur(0);
+    }
+    100% {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+
+  /* gentle breathing pulse after the entrance finishes */
+  @keyframes logo-breathe {
+    0% { transform: scale(1) translateY(0); filter: drop-shadow(0 18px 48px rgba(var(--p-primary-rgb), 0.18)); }
+    50% { transform: scale(1.02) translateY(-6px); filter: drop-shadow(0 22px 56px rgba(var(--p-primary-rgb), 0.20)); }
+    100% { transform: scale(1) translateY(0); filter: drop-shadow(0 18px 48px rgba(var(--p-primary-rgb), 0.18)); }
+  }
+
+  @keyframes text-appear {
+    0% {
+      opacity: 0;
+      transform: translateY(10px) scale(0.985);
+    }
+    60% {
+      opacity: 1;
+      transform: translateY(0) scale(1.01);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+
   /* Search bar styling - Light mode */
   :root[data-theme="eseftwo-light"] .search-input {
     background: white;

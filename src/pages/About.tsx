@@ -14,8 +14,7 @@ const About = () => {
                     <div className="card-body">
                         <h2 className="card-title text-2xl gradient-text">Visi Kami</h2>
                         <p className="text-lg text-dark">
-                            Menjadi kelas yang menghasilkan developer dan game developer terbaik yang mampu
-                            bersaing di era digital, dengan kemampuan teknis yang solid dan kreativitas yang tinggi.
+                            Menjadi kelas yang cerdas, kreatif, dan solid dalam mewujudkan generasi muda yang berkompeten di bidang pengembangan perangkat lunak dan gim. Melalui semangat kebersamaan, kedisiplinan, serta rasa tanggung jawab, kami bertekad untuk terus berinovasi, meningkatkan prestasi akademik maupun nonakademik, dan menumbuhkan karakter positif demi meraih masa depan yang gemilang di era digital.
                         </p>
                     </div>
                 </div>
@@ -24,10 +23,12 @@ const About = () => {
                     <div className="card-body">
                         <h2 className="card-title text-2xl gradient-text">Misi Kami</h2>
                         <ul className="list-disc list-inside space-y-2">
-                            <li>Menguasai berbagai teknologi pengembangan software</li>
-                            <li>Menciptakan aplikasi dan game yang inovatif</li>
-                            <li>Membangun kolaborasi dan teamwork yang solid</li>
-                            <li>Terus belajar dan berkembang mengikuti perkembangan teknologi</li>
+                            <li>Menumbuhkan sikap disiplin, tanggung jawab, dan semangat kerja sama dalam setiap kegiatan belajar maupun proyek kelas.</li>
+                            <li>Meningkatkan kemampuan berpikir kreatif, kritis, dan inovatif dalam bidang pengembangan perangkat lunak dan gim.</li>
+                            <li>Mendorong seluruh siswa untuk aktif berprestasi di bidang akademik maupun nonakademik.</li>
+                            <li>Mewujudkan lingkungan kelas yang nyaman, harmonis, dan saling menghargai.</li>
+                            <li>Menanamkan jiwa profesional dan karakter positif sebagai bekal menghadapi tantangan dunia teknologi di masa depan.</li>
+                            <li>Mengoptimalkan penggunaan teknologi digital secara bijak untuk mendukung proses pembelajaran dan pengembangan diri.</li>
                         </ul>
                     </div>
                 </div>
@@ -41,7 +42,7 @@ const About = () => {
             {/* PERBAIKAN: Tambahkan kelas text-white di sini */}
             <div className="timeline-start timeline-box bg-dark text-dark">
                 <div className="font-bold">Tahun Pertama</div>
-                Mempelajari dasar-dasar pemrograman, algoritma, dan struktur data
+                Di tahun dasar ini, siswa akan mempelajari fondasi utama dalam dunia komputasi dan pemrograman, berfokus pada memahami logika algoritma, struktur data dasar, dan etika digital sebagai developer. Siswa akan mulai mengenal dan mempraktikkan bahasa markup (HTML) dan styling (CSS) untuk membangun kerangka web statis, sekaligus mengkonseptualisasikan fungsi dasar sistem manajemen database (SQL) sebagai persiapan untuk materi lanjutan.
             </div>
             <div className="timeline-middle">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-primary">
@@ -60,16 +61,16 @@ const About = () => {
             {/* PERBAIKAN: Tambahkan kelas text-white di sini */}
             <div className="timeline-end timeline-box bg-dark text-dark">
                 <div className="font-bold">Tahun Kedua</div>
-                Mengembangkan aplikasi web dan mobile, serta game sederhana
+                Memasuki level spesialisasi, siswa akan menguasai integrasi frontend dan backend dengan mengaplikasikan framework Bootstrap untuk desain web responsif, dan mendalami pemrograman berbasis objek (OOP) melalui Java. Selain itu, siswa akan merancang dan mengelola database yang kompleks, mengembangkan antarmuka mobile melalui Flutter, dan memahami prinsip desain aset digital (UI/UX) dengan Corel, yang semuanya bertujuan untuk mewujudkan aplikasi yang fungsional dan terintegrasi.
             </div>
             <hr className="bg-primary" />
         </li>
         <li>
-            <hr className="bg-primary" />
+            
             {/* PERBAIKAN: Tambahkan kelas text-white di sini */}
             <div className="timeline-start timeline-box bg-dark text-dark">
                 <div className="font-bold">Tahun Ketiga</div>
-                Membuat proyek besar dan siap memasuki dunia industri
+                Tahun akhir ini adalah panggung profesionalisme di mana siswa akan mengimplementasikan seluruh pengetahuan dengan mengembangkan solusi web full-stack tingkat lanjut menggunakan framework industri. Fokus juga diarahkan untuk menciptakan pengalaman game yang imersif dengan menganalisis logika dan mekanika game engine. Puncaknya, siswa akan menyusun portofolio proyek live dan mempersiapkan diri secara mental dan teknis untuk Uji Kompetensi Keahlian, menunjukkan kesiapan untuk memasuki dunia kerja sebagai developer junior.
             </div>
             <div className="timeline-middle">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-primary">
