@@ -13,6 +13,14 @@ function App() {
 
     return (
         <div className="min-h-screen flex flex-col">
+            {/* Background particles global untuk mode terang */}
+            <div className="global-bg-particles">
+                <div className="particle particle-1"></div>
+                <div className="particle particle-2"></div>
+                <div className="particle particle-3"></div>
+                <div className="particle particle-4"></div>
+            </div>
+            
             <Navbar />
             <main className="flex-grow">
                 <AnimatePresence mode="wait">
