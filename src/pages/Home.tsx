@@ -38,8 +38,8 @@ const Home = () => {
         {/* Right Column (Robots) */}
         <div className="hero-right relative flex items-center justify-center">
           <div className="robots-wrapper">
-            <img src="/robot2.png" alt="Robot belakang" className="robot-img robot-back" />
-            <img src="/robot1.png" alt="Robot depan" className="robot-img robot-front" />
+            <img src="/robot2.png" alt="Robot front" className="robot-img robot-front" />
+            <img src="/robot1.png" alt="Robot back" className="robot-img robot-back" />
           </div>
         </div>
       </section>
