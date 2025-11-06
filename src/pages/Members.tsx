@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 interface Member {
     id: number
@@ -10,6 +10,42 @@ interface Member {
 
 const Members = () => {
     const [searchTerm, setSearchTerm] = useState('')
+    // SVG visibility fallback: show emoji only if SVG did not render
+    const [showEmoji, setShowEmoji] = useState(false)
+    const svgRef = useRef<SVGSVGElement | null>(null)
+    const buttonRef = useRef<HTMLButtonElement | null>(null)
+
+    useEffect(() => {
+        // run after paint to check if svg rendered and is visible
+        const check = () => {
+            const el = svgRef.current
+            const btn = buttonRef.current
+            let missing = false
+            if (!el) missing = true
+            else {
+                const rect = el.getBoundingClientRect()
+                const cs = getComputedStyle(el)
+                if (rect.width === 0 && rect.height === 0) missing = true
+                if (cs.display === 'none' || cs.visibility === 'hidden' || cs.opacity === '0') missing = true
+            }
+            setShowEmoji(missing)
+            if (btn) {
+                if (missing) btn.classList.add('svg-missing')
+                else btn.classList.remove('svg-missing')
+            }
+        }
+
+        const id = requestAnimationFrame(check)
+        // also check again on load/resize in case of late styling
+        window.addEventListener('load', check)
+        window.addEventListener('resize', check)
+
+        return () => {
+            cancelAnimationFrame(id)
+            window.removeEventListener('load', check)
+            window.removeEventListener('resize', check)
+        }
+    }, [])
 
     // Data anggota diperbarui: id, name, instagram, role, dan photo
     const members: Member[] = [
@@ -78,10 +114,13 @@ const Members = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
             />
             {/* PASTIKAN BUTTON JUGA MENGGUNAKAN join-item DAN UKURAN YANG SAMA */}
-            <button aria-label="Search" className="search-button btn btn-square btn-md join-item rounded-r-lg flex items-center justify-center transition-all duration-300"> 
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <button ref={buttonRef} aria-label="Search" title="Cari anggota" className="search-button btn btn-square btn-md join-item rounded-r-lg flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-green-600 text-white transition-all duration-300"> 
+                {/* SVG icon with permanent white stroke as primary visual */}
+                <svg ref={svgRef} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="#ffffff" style={{ stroke: '#ffffff', color: '#ffffff', display: 'block' }}>
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
+                {/* Emoji visible (fallback kept visible to guarantee icon presence) */}
+                <span aria-hidden className="fallback-emoji text-base">🔍</span>
             </button>
         </div>
     </div>

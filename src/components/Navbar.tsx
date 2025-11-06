@@ -106,7 +106,7 @@ const Navbar = () => {
             {/* ************************************ */}
             {/* * 5. PERBAIKAN UTAMA: Tombol Theme * */}
             {/* ************************************ */}
-            <div className="navbar-end lg:gap-2">
+            <div className="navbar-end lg:gap-2 flex items-center">
                 {/* Hapus container fixed yang membuat tombol melayang di luar navbar */}
                 <button
                     onClick={toggleTheme}
@@ -114,20 +114,22 @@ const Navbar = () => {
                     title={tooltipText}
                     aria-pressed={theme === 'eseftwo-light'}
                     // Menggunakan 'btn-ghost' dan 'btn-square' untuk mendapatkan tampilan kotak yang sesuai dengan screenshot.
-                    className="btn btn-ghost btn-square text-base-content shadow-none transition-all"
+                    className="btn btn-ghost flex items-center justify-center gap-1 p-2 text-base-content shadow-none transition-all"
                 >
                     {theme === 'eseftwo-light' ? (
                         // Ikon Matahari (Sun icon for light mode)
-                        <svg xmlns="http://www.w3.org/2000/svg" className={`h-6 w-6 text-base-content ${animating ? 'animate-toggle' : ''}`} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path d="M12 17.5a5.5 5.5 0 100-11 5.5 5.5 0 000 11zm0-9a3.5 3.5 0 110 7 3.5 3.5 0 010-7z"/>
-                            <path d="M13 1h-2v3h2V1zm0 19h-2v3h2v-3zM4 11H1v2h3v-2zm19 0h-3v2h3v-2zM5.99 4.58L4.58 5.99l1.41 1.41 1.42-1.41-1.42-1.41zm12.02 12.02l-1.41 1.41 1.41 1.42 1.42-1.42-1.42-1.41zM18.01 4.58l1.42 1.41 1.41-1.41-1.41-1.42-1.42 1.42zM5.99 18.01l1.41-1.41-1.41-1.42-1.42 1.42 1.42 1.41z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style={{ color: 'var(--text-main, #fff)', fill: 'var(--text-main, #fff)', stroke: 'var(--text-main, #fff)' }} className={`h-6 w-6 ${animating ? 'animate-toggle' : ''}`} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path style={{ fill: 'var(--text-main, #fff)' }} d="M12 17.5a5.5 5.5 0 100-11 5.5 5.5 0 000 11zm0-9a3.5 3.5 0 110 7 3.5 3.5 0 010-7z"/>
+                            <path style={{ fill: 'var(--text-main, #fff)' }} d="M13 1h-2v3h2V1zm0 19h-2v3h2v-3zM4 11H1v2h3v-2zm19 0h-3v2h3v-2zM5.99 4.58L4.58 5.99l1.41 1.41 1.42-1.41-1.42-1.41zm12.02 12.02l-1.41 1.41 1.41 1.42 1.42-1.42-1.42-1.41zM18.01 4.58l1.42 1.41 1.41-1.41-1.41-1.42-1.42 1.42zM5.99 18.01l1.41-1.41-1.41-1.42-1.42 1.42 1.42 1.41z"/>
                         </svg>
                     ) : (
                         // Ikon Bulan (Moon icon for dark mode)
-                        <svg xmlns="http://www.w3.org/2000/svg" className={`h-6 w-6 text-base-content ${animating ? 'animate-toggle' : ''}`} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M21.64 13a1 1 0 00-1.05-.14 8.05 8.05 0 01-3.37.73 8.15 8.15 0 01-8.14-8.1 8.59 8.59 0 01.25-2A1 1 0 008 2.36a10.14 10.14 0 1014 11.69 1 1 0 00-.36-1.05zm-9.5 6.69A8.14 8.14 0 017.08 5.22v.27a10.15 10.15 0 0010.14 10.14 9.79 9.79 0 002.1-.22 8.11 8.11 0 01-7.18 4.32z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style={{ color: 'var(--text-main, #fff)', fill: 'var(--text-main, #fff)', stroke: 'var(--text-main, #fff)' }} className={`h-6 w-6 ${animating ? 'animate-toggle' : ''}`} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path style={{ fill: 'var(--text-main, #fff)' }} d="M21.64 13a1 1 0 00-1.05-.14 8.05 8.05 0 01-3.37.73 8.15 8.15 0 01-8.14-8.1 8.59 8.59 0 01.25-2A1 1 0 008 2.36a10.14 10.14 0 1014 11.69 1 1 0 00-.36-1.05zm-9.5 6.69A8.14 8.14 0 017.08 5.22v.27a10.15 10.15 0 0010.14 10.14 9.79 9.79 0 002.1-.22 8.11 8.11 0 01-7.18 4.32z"/>
                         </svg>
                     )}
+                    {/* Fallback emoji to guarantee a visible indicator if SVG styling fails */}
+                    
                 </button>
             </div>
         </div>
