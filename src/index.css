@@ -307,11 +307,12 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    gap: 3.5rem;
+    gap: 3 rem;
   }
 
   .robot-img {
     position: relative;
+    margin-bottom: 100px;
     display: inline-block;
     max-width: 100%;
     height: auto;
@@ -320,7 +321,7 @@
   }
 
   .robot-back {
-    width: 65%;
+    width: 70%;
     transform: translateY(-2%) scale(1.02);
     opacity: 0.96;
     z-index: 10;
@@ -329,7 +330,7 @@
   }
 
   .robot-front {
-    width: 65%;
+    width: 70%;
     transform: translateY(0) scale(1.08);
     opacity: 1;
     z-index: 20;
@@ -386,6 +387,20 @@
       width: 52%;
       transform: translateY(0) scale(1.02);
     }
+  }
+
+  /* Shift hero-left content slightly to the left for a stronger split layout */
+  .hero-left {
+    transform: translateX(0);
+    transition: transform 300ms ease;
+  }
+
+  @media (min-width: 768px) {
+    .hero-left { transform: translateX(-2rem); }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-left { transform: translateX(-4rem); }
   }
 
   /* ---------------------------

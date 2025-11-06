@@ -12,7 +12,7 @@ const Home = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="hero-split grid grid-cols-1 md:grid-cols-2 items-center container mx-auto px-6 py-12 gap-10 relative z-10">
+  <section className="hero-split grid grid-cols-1 md:grid-cols-2 items-center container mx-auto px-1 py-2 gap-2 relative z-10">
         {/* Left Column */}
         <div className="hero-left text-left animate-fade-in">
           {/* Menghapus backtick yang tidak perlu di sini */}
