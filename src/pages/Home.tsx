@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import AnimatedIn from '../components/AnimatedIn'
 
 const Home = () => {
   return (
@@ -14,7 +15,7 @@ const Home = () => {
       {/* Hero Section */}
   <section className="hero-split grid grid-cols-1 md:grid-cols-2 items-center container mx-auto px-1 py-2 gap-2 relative z-10">
         {/* Left Column */}
-        <div className="hero-left text-left animate-fade-in">
+  <AnimatedIn className="hero-left text-left">
           {/* Menghapus backtick yang tidak perlu di sini */}
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight gradient-text">
             Welcome to ESEFTWO
@@ -33,15 +34,15 @@ const Home = () => {
               Lihat Galeri
             </Link>
           </div>
-        </div>
+        </AnimatedIn>
 
         {/* Right Column (Robots) */}
-        <div className="hero-right relative flex items-center justify-center">
+        <AnimatedIn className="hero-right relative flex items-center justify-center">
           <div className="robots-wrapper">
-            <img src="/robot2.png" alt="Robot front" className="robot-img robot-front" />
-            <img src="/robot1.png" alt="Robot back" className="robot-img robot-back" />
+            <img loading="lazy" src="/robot2.png" alt="Robot front" className="robot-img robot-front" />
+            <img loading="lazy" src="/robot1.png" alt="Robot back" className="robot-img robot-back" />
           </div>
-        </div>
+        </AnimatedIn>
       </section>
 
       {/* Stats Section */}
@@ -52,12 +53,14 @@ const Home = () => {
             { icon: '🏆', value: '10+', title: 'Partisipasi', desc: 'Event' },
             { icon: '⚡', value: '5+', title: 'Tech Stack', desc: 'Teknologi Modern' },
           ].map((stat, i) => (
-            <div key={i} className="glass-effect simple-border rounded-2xl p-8 text-center hover:scale-105 transition-all">
-              <div className="text-5xl mb-4">{stat.icon}</div>
-              <div className="text-5xl font-black mb-2 gradient-text">{stat.value}</div>
-              <h3 className="text-lg font-bold gradient-text mb-2">{stat.title}</h3>
-              <p className="text-muted">{stat.desc}</p>
-            </div>
+            <AnimatedIn key={i} index={i}>
+              <div className="glass-effect simple-border rounded-2xl p-8 text-center hover:scale-105 transition-all">
+                <div className="text-5xl mb-4">{stat.icon}</div>
+                <div className="text-5xl font-black mb-2 gradient-text">{stat.value}</div>
+                <h3 className="text-lg font-bold gradient-text mb-2">{stat.title}</h3>
+                <p className="text-muted">{stat.desc}</p>
+              </div>
+            </AnimatedIn>
           ))}
         </div>
       </section>
@@ -92,11 +95,13 @@ const Home = () => {
             { title: 'UI/UX Design', desc: 'Figma', icon: '🎨' },
             { title: 'Backend Development', desc: 'Node.js, Laravel', icon: '⚙️' },
           ].map((tech, i) => (
-            <div key={i} className="card-hover simple-border glass-effect rounded-2xl p-8 text-center hover:scale-105 transition-all">
-              <div className="text-5xl mb-4">{tech.icon}</div>
-              <h3 className="text-xl font-bold gradient-text mb-2">{tech.title}</h3>
-              <p className="text-muted">{tech.desc}</p>
-            </div>
+            <AnimatedIn key={i} index={i}>
+              <div key={i} className="card-hover simple-border glass-effect rounded-2xl p-8 text-center hover:scale-105 transition-all">
+                <div className="text-5xl mb-4">{tech.icon}</div>
+                <h3 className="text-xl font-bold gradient-text mb-2">{tech.title}</h3>
+                <p className="text-muted">{tech.desc}</p>
+              </div>
+            </AnimatedIn>
           ))}
         </div>
       </section>
@@ -104,22 +109,24 @@ const Home = () => {
       {/* CTA Section */}
       <section className="relative overflow-hidden py-20 z-20">
         <div className="container mx-auto px-4 text-center">
-          <div className="max-w-3xl mx-auto glass-effect p-10 rounded-3xl simple-border">
-             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 gradient-text leading-[1.4] pb-2">
-              Ikuti Perjalanan Kami
-             </h2>
-            <p className="text-xl mb-8 text-muted">
-              Mari belajar dan berkembang bersama di dunia software & game development
-            </p>
-            <div className="flex gap-4 justify-center flex-wrap">
-              <Link to="/members" className="btn btn-primary btn-lg hover:scale-105 transition-all">
-                👥 Lihat Anggota
-              </Link>
-              <Link to="/gallery" className="btn btn-ghost btn-lg hover:scale-105 transition-all">
-                📸 Galeri Kami
-              </Link>
+          <AnimatedIn>
+            <div className="max-w-3xl mx-auto glass-effect p-10 rounded-3xl simple-border">
+               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 gradient-text leading-[1.4] pb-2">
+                Ikuti Perjalanan Kami
+               </h2>
+              <p className="text-xl mb-8 text-muted">
+                Mari belajar dan berkembang bersama di dunia software & game development
+              </p>
+              <div className="flex gap-4 justify-center flex-wrap">
+                <Link to="/members" className="btn btn-primary btn-lg hover:scale-105 transition-all">
+                  👥 Lihat Anggota
+                </Link>
+                <Link to="/gallery" className="btn btn-ghost btn-lg hover:scale-105 transition-all">
+                  📸 Galeri Kami
+                </Link>
+              </div>
             </div>
-          </div>
+          </AnimatedIn>
         </div>
       </section>
     </div>

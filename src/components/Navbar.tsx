@@ -85,12 +85,12 @@ const Navbar = () => {
                         <li><Link to="/" className={isActive('/') ? 'active' : ''}>Home</Link></li>
                         <li><Link to="/about" className={isActive('/about') ? 'active' : ''}>Tentang</Link></li>
                         <li><Link to="/members" className={isActive('/members') ? 'active' : ''}>Anggota</Link></li>
-                        <li><Link to="/gallery" className={isActive('/gallery') ? 'active' : ''}>Galeri</Link></li>
+                        <li><Link to="/gallery" onClick={() => { try { sessionStorage.removeItem('galleryIntroShown') } catch {} }} className={isActive('/gallery') ? 'active' : ''}>Galeri</Link></li>
                     </ul>
                 </div>
                 <div className="flex gap-3 items-center pl-2">
                     {/* Gantilah '/sft.png' dengan path logo Anda yang sebenarnya */}
-                    <img src="/sft.png" alt="SFT logo" className="h-20 md:h-24 w-auto" />
+                    <img loading="lazy" src="/sft.png" alt="SFT logo" className="h-20 md:h-24 w-auto" />
                     <span className="gradient-text text-xl md:text-2xl font-black leading-none tracking-tight">ESEFTWO</span>
                 </div>
             </div>
@@ -99,7 +99,7 @@ const Navbar = () => {
                     <li><Link to="/" className={`text-base ${isActive('/') ? 'active' : ''}`}>Home</Link></li>
                     <li><Link to="/about" className={`text-base ${isActive('/about') ? 'active' : ''}`}>Tentang</Link></li>
                     <li><Link to="/members" className={`text-base ${isActive('/members') ? 'active' : ''}`}>Anggota</Link></li>
-                    <li><Link to="/gallery" className={`text-base ${isActive('/gallery') ? 'active' : ''}`}>Galeri</Link></li>
+                    <li><Link to="/gallery" onClick={() => { try { sessionStorage.removeItem('galleryIntroShown') } catch {} }} className={`text-base ${isActive('/gallery') ? 'active' : ''}`}>Galeri</Link></li>
                 </ul>
             </div>
 
