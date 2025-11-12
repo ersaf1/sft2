@@ -260,6 +260,53 @@
     animation: fade-in 0.8s ease-out;
   }
 
+  /* ---------------------------
+     Video-accent animated background
+     subtle moving gradients to match splash video colors
+  --------------------------- */
+  .video-accent {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at 10% 20%, rgba(var(--p-primary-rgb), 0.10), transparent 12%),
+                radial-gradient(circle at 85% 80%, rgba(var(--p-accent-rgb), 0.08), transparent 18%),
+                linear-gradient(135deg, rgba(var(--p-primary-rgb), 0.02), rgba(var(--p-accent-rgb), 0.02));
+    mix-blend-mode: screen;
+    transform: translateZ(0);
+    will-change: transform, opacity, background-position;
+    animation: video-accent-move 18s linear infinite;
+    opacity: 0.9;
+  }
+
+  @keyframes video-accent-move {
+    0% { background-position: 0% 0%, 100% 100%, 0% 0%; transform: translate3d(0,0,0); }
+    25% { background-position: 10% 5%, 95% 105%, 5% 2%; transform: translate3d(-2px,-1px,0); }
+    50% { background-position: 20% 10%, 90% 110%, 10% 5%; transform: translate3d(0,0,0); }
+    75% { background-position: 15% 8%, 92% 108%, 3% 1%; transform: translate3d(2px,1px,0); }
+    100% { background-position: 0% 0%, 100% 100%, 0% 0%; transform: translate3d(0,0,0); }
+  }
+
+  /* Hide native large play button / overlays on the splash fullscreen video */
+  .splash-fullscreen-video .splash-video-el::-webkit-media-controls-start-playback-button,
+  .splash-fullscreen-video .splash-video-el::-webkit-media-controls-overlay-play-button,
+  .splash-fullscreen-video .splash-video-el::-webkit-media-controls-panel,
+  .splash-fullscreen-video .splash-video-el::-webkit-media-controls-enclosure {
+    display: none !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+  }
+
+  /* For some browsers the overlay is added as a pseudo-element on the video element itself */
+  .splash-fullscreen-video .splash-video-el::--webkit-media-overlay-play-button {
+    display: none !important;
+  }
+
+  /* As a last resort, hide pointer events on the video overlay area to prevent showing play HUD */
+  .splash-fullscreen-video .splash-video-el {
+    pointer-events: none;
+  }
+
   @keyframes spin-scale {
     0% { transform: rotate(0deg) scale(1); opacity: 1; }
     50% { transform: rotate(180deg) scale(0.5); opacity: 0.5; }
@@ -302,8 +349,9 @@
   --------------------------- */
   .hero-right .robots-wrapper {
     position: relative;
+    margin-top: 50px;
     width: 100%;
-    min-height: 600px;
+    min-height: 500px;
     display: flex;
     align-items: flex-end;
     justify-content: center;

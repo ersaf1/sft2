@@ -13,6 +13,8 @@ function App() {
 
     return (
         <div className="min-h-screen flex flex-col">
+            {/* Subtle moving accent behind app (matches splash video colors) */}
+            <div className="video-accent" aria-hidden="true" />
             {/* Background particles global untuk mode terang */}
             <div className="global-bg-particles">
                 <div className="particle particle-1"></div>

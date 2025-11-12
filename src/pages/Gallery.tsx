@@ -3,6 +3,20 @@ import MediaViewer, { MediaItem } from '../components/MediaViewer'
 import GalleryIntro from '../components/GalleryIntro'
 import AnimatedIn from '../components/AnimatedIn'
 
+// Small video thumbnail that disables native PiP/remote overlays
+const VideoThumb: React.FC<{ src: string }> = ({ src }) => {
+    const ref = (el: HTMLVideoElement | null) => {
+        if (!el) return
+        try { el.setAttribute('playsinline', '') } catch {}
+        try { el.setAttribute('webkit-playsinline', '') } catch {}
+        try { el.setAttribute('x-webkit-airplay', 'deny') } catch {}
+        try { (el as any).disablePictureInPicture = true } catch {}
+        try { (el as any).disableRemotePlayback = true } catch {}
+    }
+
+    return <video ref={ref} src={src} className="w-full h-full object-cover" muted preload="metadata" playsInline controls={false} controlsList="nodownload noremoteplayback nofullscreen" />
+}
+
 const Gallery = () => {
     // activities removed - gallery is now read-only documentation with examples
 
@@ -31,6 +45,13 @@ const Gallery = () => {
             'e7.jpg',
             'e8.jpg',
             'e9.jpg',
+            'e10.mp4',
+            'e11.mp4',
+            'e12.mp4',
+            'e13.jpg',
+            'e14.jpg',
+            'e15.jpg',
+            'e16.jpg',
         ]
 
         const examples: MediaItem[] = galleryFiles.map((name, idx) => {
@@ -51,11 +72,24 @@ const Gallery = () => {
 
     const closeViewer = () => setViewerItem(null)
 
+    // read optional intro background mode from URL: ?introbg=transparent|black
+    const getIntroBg = () => {
+        try {
+            if (typeof window === 'undefined') return undefined
+            const params = new URLSearchParams(window.location.search)
+            const v = params.get('introbg')
+            if (v === 'transparent' || v === 'black') return v as 'transparent' | 'black'
+        } catch {}
+        return undefined
+    }
+
+    const introBg = getIntroBg()
+
     return (
         <div className="container mx-auto px-4 py-12">
             {/* Intro animation shown before gallery content */}
             {showIntro && (
-                <GalleryIntro onFinish={() => { try { sessionStorage.setItem('galleryIntroShown','1') } catch {} ; setShowIntro(false) }} />
+                <GalleryIntro bg={introBg} onFinish={() => { try { sessionStorage.setItem('galleryIntroShown','1') } catch {} ; setShowIntro(false) }} />
             )}
             {/* Header */}
             <AnimatedIn>
@@ -109,7 +143,7 @@ const Gallery = () => {
                             media.filter((m) => m.type === 'video').map((m, i) => (
                                 <AnimatedIn key={m.id} index={i}>
                                     <div className="group relative aspect-video rounded-2xl overflow-hidden card-hover cursor-pointer transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl bg-black" onClick={() => openViewer(m)}>
-                                        <video src={m.src} className="w-full h-full object-cover" muted preload="metadata" />
+                                        <VideoThumb src={m.src} />
                                         {/* Play overlay */}
                                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                                             <div className="p-3 rounded-full bg-black/50 backdrop-blur-sm transform transition-transform duration-300 group-hover:scale-110">

@@ -90,7 +90,7 @@ const Navbar = () => {
                 </div>
                 <div className="flex gap-3 items-center pl-2">
                     {/* Gantilah '/sft.png' dengan path logo Anda yang sebenarnya */}
-                    <img loading="lazy" src="/sft.png" alt="SFT logo" className="h-20 md:h-24 w-auto" />
+                    <img loading="lazy" src="/sft.png" alt="SFT logo" className="h-24 md:h-30 lg:h-34 w-auto" />
                     <span className="gradient-text text-xl md:text-2xl font-black leading-none tracking-tight">ESEFTWO</span>
                 </div>
             </div>

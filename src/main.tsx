@@ -9,12 +9,12 @@ function Root() {
     const [showSplash, setShowSplash] = useState(true)
 
     useEffect(() => {
-    // Minimum splash time; set to 5000ms (5 seconds)
-    const t = setTimeout(() => setShowSplash(false), 5000)
+        // Fallback: hide splash after 8 seconds in case video fails to play
+        const t = setTimeout(() => setShowSplash(false), 8000)
         return () => clearTimeout(t)
     }, [])
 
-    if (showSplash) return <Splash />
+    if (showSplash) return <Splash onFinish={() => setShowSplash(false)} />
 
     return (
         <BrowserRouter>

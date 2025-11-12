@@ -91,49 +91,29 @@ const About = () => {
                             </div>
                         </AnimatedIn>
 
-            {/* Values */}
-            <AnimatedIn>
-              <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-center mb-8">Nilai-Nilai Kami</h2>
-                  <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                      <AnimatedIn>
-                        <div className="card bg-primary text-white shadow-xl">
-                            <div className="card-body items-center text-center">
-                                <h3 className="card-title">Kreativitas</h3>
-                                <p>Berpikir out of the box dalam setiap proyek</p>
-                            </div>
-                        </div>
-                      </AnimatedIn>
-
-                      <AnimatedIn>
-                        <div className="card bg-primary text-white shadow-xl">
-                            <div className="card-body items-center text-center">
-                                <h3 className="card-title">Kolaborasi</h3>
-                                <p>Bekerja sama untuk hasil terbaik</p>
-                            </div>
-                        </div>
-                      </AnimatedIn>
-
-                      <AnimatedIn>
-                        <div className="card bg-primary text-white shadow-xl">
-                            <div className="card-body items-center text-center">
-                                <h3 className="card-title">Inovasi</h3>
-                                <p>Selalu mencari solusi baru</p>
-                            </div>
-                        </div>
-                      </AnimatedIn>
-
-                      <AnimatedIn>
-                        <div className="card bg-primary text-white shadow-xl">
-                            <div className="card-body items-center text-center">
-                                <h3 className="card-title">Dedikasi</h3>
-                                <p>Komitmen penuh dalam belajar</p>
-                            </div>
-                        </div>
-                      </AnimatedIn>
-                  </div>
-              </div>
-            </AnimatedIn>
+                        {/* Values */}
+                        <AnimatedIn>
+                            <section className="mb-12">
+                                    <h2 className="text-3xl font-bold text-center mb-6">Nilai-Nilai Kami</h2>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-6" role="list">
+                                            {[
+                                                { id: 'creativity', title: 'Kreativitas', desc: 'Berpikir out of the box dalam setiap proyek' },
+                                                { id: 'collaboration', title: 'Kolaborasi', desc: 'Bekerja sama untuk hasil terbaik' },
+                                                { id: 'innovation', title: 'Inovasi', desc: 'Selalu mencari solusi baru' },
+                                                { id: 'dedication', title: 'Dedikasi', desc: 'Komitmen penuh dalam belajar' },
+                                            ].map((v, i) => (
+                                                <AnimatedIn key={v.id} index={Math.min(i, 8)} stagger={0.04}>
+                                                    <article role="listitem" className="card bg-primary text-white shadow-xl hover:shadow-2xl transform-gpu transition-all duration-250 hover:scale-[1.02] flex flex-col">
+                                                        <div className="card-body items-center text-center p-6">
+                                                            <h3 className="card-title text-lg font-semibold">{v.title}</h3>
+                                                            <p className="text-sm mt-2 text-white/90">{v.desc}</p>
+                                                        </div>
+                                                    </article>
+                                                </AnimatedIn>
+                                            ))}
+                                    </div>
+                            </section>
+                        </AnimatedIn>
 
             {/* Tech Stack */}
             <AnimatedIn>

@@ -4,16 +4,23 @@ import { motion } from 'framer-motion'
 interface Props {
   onFinish?: () => void
   duration?: number
+  /**
+   * background mode: 'transparent' for no backdrop, 'black' for full black,
+   * otherwise default is semi-opaque black.
+   */
+  bg?: 'transparent' | 'black'
 }
 
-const GalleryIntro: React.FC<Props> = ({ onFinish, duration = 2200 }) => {
+const GalleryIntro: React.FC<Props> = ({ onFinish, duration = 2200, bg }) => {
   useEffect(() => {
     const t = setTimeout(() => onFinish && onFinish(), duration)
     return () => clearTimeout(t)
   }, [onFinish, duration])
 
+  const bgClass = bg === 'transparent' ? 'bg-transparent' : bg === 'black' ? 'bg-black' : 'bg-black/80'
+
   return (
-    <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/80 backdrop-blur-sm p-6">
+    <div className={`fixed inset-0 z-[1000] flex items-center justify-center ${bgClass} ${bg === 'transparent' ? '' : 'backdrop-blur-sm'} p-6`}>
       <motion.div
         initial={{ opacity: 0, y: 10, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}

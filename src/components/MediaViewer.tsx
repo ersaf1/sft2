@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 type MediaItem = {
   id: string
@@ -29,12 +29,40 @@ const MediaViewer: React.FC<Props> = ({ item, onClose }) => {
               // eslint-disable-next-line jsx-a11y/img-redundant-alt
               <img loading="lazy" src={item.src} alt={item.title || 'Image'} className="max-w-full max-h-[70vh] object-contain" />
             ) : (
-              <video src={item.src} controls className="max-w-full max-h-[70vh]" />
+              <VideoPlayer src={item.src} />
             )}
           </div>
         </div>
       </div>
     </div>
+  )
+}
+
+
+const VideoPlayer: React.FC<{ src: string }> = ({ src }) => {
+  const ref = useRef<HTMLVideoElement | null>(null)
+
+  useEffect(() => {
+    const v = ref.current
+    if (!v) return
+    try {
+      v.setAttribute('playsinline', '')
+      v.setAttribute('webkit-playsinline', '')
+      v.setAttribute('x-webkit-airplay', 'deny')
+    } catch {}
+    try { (v as any).disablePictureInPicture = true } catch {}
+    try { (v as any).disableRemotePlayback = true } catch {}
+  }, [])
+
+  return (
+    <video
+      ref={ref}
+      src={src}
+      controls
+      className="max-w-full max-h-[70vh]"
+      playsInline
+      controlsList="nodownload noremoteplayback nofullscreen"
+    />
   )
 }
 
