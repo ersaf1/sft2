@@ -82,10 +82,10 @@ const Navbar = () => {
                         </svg>
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><Link to="/" className={isActive('/') ? 'active' : ''}>Home</Link></li>
-                        <li><Link to="/about" className={isActive('/about') ? 'active' : ''}>Tentang</Link></li>
-                        <li><Link to="/members" className={isActive('/members') ? 'active' : ''}>Anggota</Link></li>
-                        <li><Link to="/gallery" onClick={() => { try { sessionStorage.removeItem('galleryIntroShown') } catch {} }} className={isActive('/gallery') ? 'active' : ''}>Galeri</Link></li>
+                        <li><Link to="/" className={`nav-link ${isActive('/') ? 'active' : ''}`}>Home</Link></li>
+                        <li><Link to="/about" className={`nav-link ${isActive('/about') ? 'active' : ''}`}>Tentang</Link></li>
+                        <li><Link to="/members" className={`nav-link ${isActive('/members') ? 'active' : ''}`}>Anggota</Link></li>
+                        <li><Link to="/gallery" onClick={() => { try { sessionStorage.removeItem('galleryIntroShown') } catch {} }} className={`nav-link ${isActive('/gallery') ? 'active' : ''}`}>Galeri</Link></li>
                     </ul>
                 </div>
                 <div className="flex gap-3 items-center pl-2">
@@ -96,10 +96,10 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 gap-2">
-                    <li><Link to="/" className={`text-base ${isActive('/') ? 'active' : ''}`}>Home</Link></li>
-                    <li><Link to="/about" className={`text-base ${isActive('/about') ? 'active' : ''}`}>Tentang</Link></li>
-                    <li><Link to="/members" className={`text-base ${isActive('/members') ? 'active' : ''}`}>Anggota</Link></li>
-                    <li><Link to="/gallery" onClick={() => { try { sessionStorage.removeItem('galleryIntroShown') } catch {} }} className={`text-base ${isActive('/gallery') ? 'active' : ''}`}>Galeri</Link></li>
+                    <li><Link to="/" className={`nav-link text-base ${isActive('/') ? 'active' : ''}`}>Home</Link></li>
+                    <li><Link to="/about" className={`nav-link text-base ${isActive('/about') ? 'active' : ''}`}>Tentang</Link></li>
+                    <li><Link to="/members" className={`nav-link text-base ${isActive('/members') ? 'active' : ''}`}>Anggota</Link></li>
+                    <li><Link to="/gallery" onClick={() => { try { sessionStorage.removeItem('galleryIntroShown') } catch {} }} className={`nav-link text-base ${isActive('/gallery') ? 'active' : ''}`}>Galeri</Link></li>
                 </ul>
             </div>
 
