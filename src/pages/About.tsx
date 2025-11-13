@@ -103,10 +103,10 @@ const About = () => {
                                                 { id: 'dedication', title: 'Dedikasi', desc: 'Komitmen penuh dalam belajar' },
                                             ].map((v, i) => (
                                                 <AnimatedIn key={v.id} index={Math.min(i, 8)} stagger={0.04}>
-                                                    <article role="listitem" className="card bg-primary text-white shadow-xl hover:shadow-2xl transform-gpu transition-all duration-250 hover:scale-[1.02] flex flex-col">
-                                                        <div className="card-body items-center text-center p-6">
-                                                            <h3 className="card-title text-lg font-semibold">{v.title}</h3>
-                                                            <p className="text-sm mt-2 text-white/90">{v.desc}</p>
+                                                    <article role="listitem" className="card bg-primary text-white shadow-xl hover:shadow-2xl transform-gpu transition-all duration-250 hover:scale-[1.02] flex flex-col h-full rounded-2xl overflow-hidden">
+                                                        <div className="card-body items-center text-center p-6 flex-1 flex flex-col justify-center">
+                                                            <h3 className="card-title text-xl font-semibold mb-2">{v.title}</h3>
+                                                            <p className="text-base mt-1 text-white/90">{v.desc}</p>
                                                         </div>
                                                     </article>
                                                 </AnimatedIn>
