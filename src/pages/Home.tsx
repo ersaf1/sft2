@@ -35,11 +35,16 @@ const Home = () => {
           </div>
         </AnimatedIn>
 
-        {/* Right Column (Robots) */}
-        <AnimatedIn className="hero-right relative flex items-center justify-center">
-          <div className="robots-wrapper">
-            <img loading="lazy" src="/robot2.png" alt="Robot front" className="robot-img robot-front" />
-            <img loading="lazy" src="/robot1.png" alt="Robot back" className="robot-img robot-back" />
+        {/* Right Column (Hero image) */}
+        <AnimatedIn className="hero-right relative flex items-center justify-center h-full">
+          <div className="robots-wrapper w-full h-full flex items-center justify-center">
+            {/* Single hero image: keep PNG transparency; larger on md+ screens and centered vertically */}
+            <img
+              loading="lazy"
+              src="/hai.png"
+              alt="Hai illustration"
+              className="w-full max-w-sm md:max-w-md lg:max-w-xl xl:max-w-2xl h-auto bg-transparent object-contain"
+            />
           </div>
         </AnimatedIn>
       </section>

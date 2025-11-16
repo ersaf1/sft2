@@ -342,6 +342,42 @@
     box-shadow: none !important;
   }
 
+  /* ---------------------------
+     Hero image (home) sizing & alignment
+     Targets the `.hero-right .robots-wrapper img` used on the Home page
+     Keep the PNG transparent areas visible and enlarge responsively
+  --------------------------- */
+  .hero-right .robots-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .hero-right .robots-wrapper img {
+    display: block;
+    width: auto;
+    max-height: 120vh;
+    object-fit: contain;
+    background: transparent;
+  }
+
+  @media (min-width: 640px) {
+    .hero-right .robots-wrapper img { max-width: 360px; }
+  }
+
+  @media (min-width: 768px) {
+    .hero-right .robots-wrapper img { max-width: 520px; }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-right .robots-wrapper img { max-width: 720px; }
+  }
+
+  @media (min-width: 1280px) {
+    .hero-right .robots-wrapper img { max-width: 920px; }
+  }
+
   /* Hide native large play button / overlays on the splash fullscreen video */
   .splash-fullscreen-video .splash-video-el::-webkit-media-controls-start-playback-button,
   .splash-fullscreen-video .splash-video-el::-webkit-media-controls-overlay-play-button,
@@ -405,13 +441,13 @@
   --------------------------- */
   .hero-right .robots-wrapper {
     position: relative;
-    margin-top: 50px;
+    margin-bottom: 50px;
     width: 100%;
     min-height: 500px;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    gap: 3 rem;
+    gap: 3rem;
   }
 
   .robot-img {
