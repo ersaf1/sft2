@@ -7,6 +7,7 @@ import Home from './pages/Home.tsx'
 import About from './pages/About'
 import Members from './pages/Members'
 import Gallery from './pages/Gallery'
+import Contact from './pages/Contact'
 
 function App() {
     const location = useLocation()
@@ -31,6 +32,7 @@ function App() {
                         <Route path="/about" element={<AnimatedPage><About /></AnimatedPage>} />
                         <Route path="/members" element={<AnimatedPage><Members /></AnimatedPage>} />
                         <Route path="/gallery" element={<AnimatedPage><Gallery /></AnimatedPage>} />
+                        <Route path="/contact" element={<AnimatedPage><Contact /></AnimatedPage>} />
                     </Routes>
                 </AnimatePresence>
             </main>

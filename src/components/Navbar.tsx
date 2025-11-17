@@ -85,7 +85,9 @@ const Navbar = () => {
                         <li><Link to="/" className={`nav-link ${isActive('/') ? 'active' : ''}`}>Home</Link></li>
                         <li><Link to="/about" className={`nav-link ${isActive('/about') ? 'active' : ''}`}>Tentang</Link></li>
                         <li><Link to="/members" className={`nav-link ${isActive('/members') ? 'active' : ''}`}>Anggota</Link></li>
-                        <li><Link to="/gallery" onClick={() => { try { sessionStorage.removeItem('galleryIntroShown') } catch {} }} className={`nav-link ${isActive('/gallery') ? 'active' : ''}`}>Galeri</Link></li>
+                        <li><Link to="/gallery" className={`nav-link ${isActive('/gallery') ? 'active' : ''}`}>Galeri</Link></li>
+                        <li><Link to="/contact" className={`nav-link ${isActive('/contact') ? 'active' : ''}`}>Kontak</Link></li>
+
                     </ul>
                 </div>
                 <div className="flex gap-3 items-center pl-2">
@@ -100,6 +102,7 @@ const Navbar = () => {
                     <li><Link to="/about" className={`nav-link text-base ${isActive('/about') ? 'active' : ''}`}>Tentang</Link></li>
                     <li><Link to="/members" className={`nav-link text-base ${isActive('/members') ? 'active' : ''}`}>Anggota</Link></li>
                     <li><Link to="/gallery" onClick={() => { try { sessionStorage.removeItem('galleryIntroShown') } catch {} }} className={`nav-link text-base ${isActive('/gallery') ? 'active' : ''}`}>Galeri</Link></li>
+                    <li><Link to="/contact" className={`nav-link text-base ${isActive('/contact') ? 'active' : ''}`}>Kontak</Link></li>
                 </ul>
             </div>
 
