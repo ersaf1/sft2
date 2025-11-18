@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 
 // ************************************
@@ -21,6 +22,52 @@ const getInitialTheme = () => {
         return 'minimalist';
     }
 }
+
+// Original letter-by-letter framer-motion brand (simple staggered jump)
+const IntroBrand: React.FC = () => {
+    const TITLE = 'ESEFTWO';
+    const shouldReduce = useReducedMotion();
+
+    if (shouldReduce) {
+        return <span className="gradient-text text-2xl md:text-3xl lg:text-4xl font-black leading-none tracking-tight font-iceland">{TITLE}</span>;
+    }
+
+    const container = {
+        initial: {},
+        animate: { transition: { staggerChildren: 0.06 } },
+    } as const;
+
+    const letter: any = {
+        initial: { y: 0 },
+        animate: {
+            y: [0, -8, 0],
+            transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+        },
+    };
+
+    return (
+        <motion.span
+            className="gradient-text brand-title text-2xl md:text-4xl lg:text-5xl font-black leading-none tracking-tight font-iceland"
+            aria-label="E S F T W O"
+            initial="initial"
+            animate="animate"
+            variants={container}
+            style={{ display: 'inline-block' }}
+        >
+            {TITLE.split('').map((ch, i) => (
+                <motion.span
+                    key={i}
+                    variants={letter}
+                    className="inline-block"
+                    style={{ display: 'inline-block' }}
+                    aria-hidden
+                >
+                    {ch}
+                </motion.span>
+            ))}
+        </motion.span>
+    );
+};
 
 const Navbar = () => {
     // State untuk tema saat ini
@@ -93,23 +140,30 @@ const Navbar = () => {
                 <div className="flex gap-3 items-center pl-2">
                     {/* Gantilah '/sft.png' dengan path logo Anda yang sebenarnya */}
                     <img loading="lazy" src="/sft.png" alt="SFT logo" className="h-24 md:h-30 lg:h-34 w-auto" />
-                    <span className="gradient-text text-xl md:text-2xl font-black leading-none tracking-tight">ESEFTWO</span>
+                    {/* Animated brand title: letter-by-letter motion (respects prefers-reduced-motion) */}
+                    {/**
+                     * Implementation notes:
+                     * - We split the brand into individual letters and animate each with a small 'jump' using framer-motion.
+                     * - If the user prefers reduced motion, we fall back to a static span.
+                     */}
+                    <IntroBrand />
                 </div>
-            </div>
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 gap-2">
-                    <li><Link to="/" className={`nav-link text-base ${isActive('/') ? 'active' : ''}`}>Home</Link></li>
-                    <li><Link to="/about" className={`nav-link text-base ${isActive('/about') ? 'active' : ''}`}>Tentang</Link></li>
-                    <li><Link to="/members" className={`nav-link text-base ${isActive('/members') ? 'active' : ''}`}>Anggota</Link></li>
-                    <li><Link to="/gallery" onClick={() => { try { sessionStorage.removeItem('galleryIntroShown') } catch {} }} className={`nav-link text-base ${isActive('/gallery') ? 'active' : ''}`}>Galeri</Link></li>
-                    <li><Link to="/contact" className={`nav-link text-base ${isActive('/contact') ? 'active' : ''}`}>Kontak</Link></li>
-                </ul>
             </div>
 
             {/* ************************************ */}
             {/* * 5. PERBAIKAN UTAMA: Tombol Theme * */}
             {/* ************************************ */}
             <div className="navbar-end lg:gap-2 flex items-center">
+                {/* Large-screen menu moved to the right side (before the toggle) */}
+                <div className="hidden lg:flex lg:items-center lg:mr-3">
+                    <ul className="menu menu-horizontal px-1 gap-2">
+                        <li><Link to="/" className={`nav-link text-base ${isActive('/') ? 'active' : ''}`}>Home</Link></li>
+                        <li><Link to="/about" className={`nav-link text-base ${isActive('/about') ? 'active' : ''}`}>Tentang</Link></li>
+                        <li><Link to="/members" className={`nav-link text-base ${isActive('/members') ? 'active' : ''}`}>Anggota</Link></li>
+                        <li><Link to="/gallery" onClick={() => { try { sessionStorage.removeItem('galleryIntroShown') } catch {} }} className={`nav-link text-base ${isActive('/gallery') ? 'active' : ''}`}>Galeri</Link></li>
+                        <li><Link to="/contact" className={`nav-link text-base ${isActive('/contact') ? 'active' : ''}`}>Kontak</Link></li>
+                    </ul>
+                </div>
                 {/* Hapus container fixed yang membuat tombol melayang di luar navbar */}
                 <button
                     onClick={toggleTheme}

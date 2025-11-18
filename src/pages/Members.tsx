@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import AnimatedIn from '../components/AnimatedIn'
+import SearchBar from '../components/SearchBar'
+import Icons from '../components/Icons'
 
 interface Member {
     id: number
@@ -95,39 +97,23 @@ const Members: React.FC = () => {
         <div className="container mx-auto px-4 py-12 relative z-10">
             <AnimatedIn>
                 <div className="text-center mb-12 relative z-10">
-                    <h1 className="text-5xl font-bold mb-4">Anggota <span className="gradient-text">eseftwo</span></h1>
+                    <h1 className="text-5xl font-bold mb-4">Anggota <span className="gradient-text">ESEFTWO</span></h1>
                     <div className="divider max-w-xs mx-auto"></div>
                     <p className="text-xl text-gray-600">Para developer dan game developer berbakat</p>
                 </div>
             </AnimatedIn>
 
             <AnimatedIn>
-                <div className="max-w-md mx-auto mb-12">
-                    <div className="form-control">
-                        <div className="join w-full rounded-lg overflow-hidden shadow-sm">
-                            <input
-                                type="text"
-                                placeholder="Cari anggota, role, atau skill..."
-                                className="search-input input w-full input-md join-item rounded-l-lg px-4 py-3 transition-all duration-300"
-                                value={searchTerm}
-                                onChange={(e) => { setSearchTerm(e.target.value) }}
-                            />
-                            <button ref={buttonRef} aria-label="Search" title="Cari anggota" className="search-button btn btn-square btn-md join-item rounded-r-lg flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-green-600 text-white transition-all duration-300">
-                                <svg ref={svgRef} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="#ffffff" style={{ stroke: '#ffffff', color: '#ffffff', display: 'block' }}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                </svg>
-                                <span aria-hidden className="fallback-emoji text-base">🔍</span>
-                            </button>
-                        </div>
-                    </div>
+                <div className="max-w-xl mx-auto mb-12">
+                    <SearchBar value={searchTerm} onChange={setSearchTerm} />
                 </div>
             </AnimatedIn>
 
             <AnimatedIn>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 items-stretch relative z-10">
                     {filteredMembers.map((member, idx) => (
-                        <AnimatedIn key={member.id} index={Math.min(idx, 8)} stagger={0.04}>
-                            <motion.article whileHover={{ scale: 1.03, y: -6 }} transition={{ type: 'spring', stiffness: 300, damping: 22 }} className="card card-animated-bg text-white shadow-xl transform-gpu hover:shadow-2xl transition-all duration-300 ease-out group h-full flex flex-col">
+                        <AnimatedIn key={member.id} index={Math.min(idx, 8)} stagger={0.02}>
+                            <motion.article whileHover={{ scale: 1.02, y: -4 }} transition={{ type: 'tween', duration: 0.14, ease: 'easeOut' }} className="card card-animated-bg text-white shadow-lg transform-gpu hover:shadow-xl transition-transform duration-200 ease-out group h-full flex flex-col">
                                 <div className="card-body p-6 flex flex-col justify-between flex-1">
                                     <div className="flex justify-center mb-5">
                                         <div className="avatar">

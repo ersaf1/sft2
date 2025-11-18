@@ -3,7 +3,11 @@
    ========================================================= */
 
 /* Import font first */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+/* Recommended: preconnect in index.html for best perf:
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+*/
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Iceland&display=swap');
 
 /* Tailwind Layers */
 @tailwind base;
@@ -78,11 +82,66 @@
   body {
     background-color: var(--bg-main);
     color: var(--text-main);
-    font-family: 'Inter', sans-serif;
+    /* Use 'Anta' for body text (user choice). Fallback to system fonts. */
+    font-family: 'Anta', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    /* Default text weight and comfortable reading line-height */
+    font-weight: 400;
+    line-height: 1.6;
+    /* Normalize sizing relative to the html base (17px set above) */
+    font-size: 1rem;
   }
 
   html {
     scroll-behavior: smooth;
+    /* Slightly larger base font for improved readability (user request) */
+    font-size: 17px;
+  }
+
+  /* Headings use Iceland for a display look (primary/display font), body uses Anta as secondary
+     - Provide tuned sizes and weights so headings feel proportional to the slightly larger base font
+     - Use clamp() to make headings responsive while keeping sensible maximums
+  */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Iceland', 'Anta', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text-main);
+    margin-top: 0;
+    margin-bottom: 0.45rem;
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+  }
+
+  /* Display / hero title */
+  h1 {
+    font-size: clamp(2.2rem, 5.5vw, 3.6rem); /* ~37px on large screens */
+    font-weight: 700;
+  }
+
+  /* Section titles */
+  h2 {
+    font-size: clamp(1.5rem, 4.0vw, 2.4rem);
+    font-weight: 600;
+  }
+
+  /* Sub-section */
+  h3 {
+    font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+    font-weight: 600;
+  }
+
+  h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+
+  h5, h6 {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  /* Smaller text such as meta/footnotes */
+  small {
+    font-size: 0.9rem;
+    line-height: 1.3;
   }
 
   /* Scrollbar */
@@ -143,6 +202,11 @@
 
   :root[data-theme="eseftwo-light"] .hero-gradient {
     animation: none;
+  }
+
+  /* Utility: explicit class to force Iceland display font when needed */
+  .font-iceland {
+    font-family: 'Iceland', 'Anta', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   }
 
   :root[data-theme="eseftwo-light"] .hero-gradient::before {
@@ -285,6 +349,226 @@
     50% { background-position: 20% 10%, 90% 110%, 10% 5%; transform: translate3d(0,0,0); }
     75% { background-position: 15% 8%, 92% 108%, 3% 1%; transform: translate3d(2px,1px,0); }
     100% { background-position: 0% 0%, 100% 100%, 0% 0%; transform: translate3d(0,0,0); }
+  }
+
+  /* ---------------------------
+     Glitch effect for brand title
+     Uses pseudo-elements (::before/::after) to create RGB split + clip flicker.
+     Respects prefers-reduced-motion and avoids layout-shifting transforms.
+  --------------------------- */
+  .glitch-wrapper { display: inline-block; position: relative; line-height: 1; }
+
+  .glitch {
+    position: relative;
+    display: inline-block;
+    /* keep gradient-text and other typographic classes working */
+  }
+
+  .glitch[data-text]::before,
+  .glitch[data-text]::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* keep inert by default; animations enabled only while .glitch-play is present */
+    animation: none;
+  }
+
+  /* Colored offsets (only active during intro) */
+  .glitch-play .glitch[data-text]::before {
+    left: 2px;
+    text-shadow: -2px 0 rgba(0, 255, 255, 0.95);
+    color: rgba(0, 255, 255, 0.95);
+    clip-path: inset(0 0 60% 0);
+    animation: glitch-anim 1.2s linear 0s 2 alternate-reverse;
+    opacity: 0.98;
+  }
+
+  .glitch-play .glitch[data-text]::after {
+    left: -2px;
+    text-shadow: -2px 0 rgba(255, 0, 255, 0.95);
+    color: rgba(255, 0, 255, 0.95);
+    clip-path: inset(40% 0 0 0);
+    animation: glitch-anim-2 1.6s linear 0s 2 alternate-reverse;
+    opacity: 0.92;
+  }
+
+  @keyframes glitch-anim {
+    0% { transform: translate3d(0,0,0); clip-path: inset(0 0 69% 0); }
+    10% { transform: translate3d(-2px,-1px,0); clip-path: inset(0 0 50% 0); }
+    20% { transform: translate3d(1px,1px,0); clip-path: inset(30% 0 30% 0); }
+    30% { transform: translate3d(-1px,2px,0); clip-path: inset(10% 0 60% 0); }
+    40% { transform: translate3d(0,0,0); clip-path: inset(0 0 69% 0); }
+    100% { transform: translate3d(0,0,0); }
+  }
+
+  @keyframes glitch-anim-2 {
+    0% { transform: translate3d(0,0,0); clip-path: inset(50% 0 0 0); }
+    12% { transform: translate3d(2px,1px,0); clip-path: inset(20% 0 45% 0); }
+    24% { transform: translate3d(-1px,-2px,0); clip-path: inset(40% 0 10% 0); }
+    36% { transform: translate3d(1px,1px,0); clip-path: inset(30% 0 30% 0); }
+    100% { transform: translate3d(0,0,0); }
+  }
+
+  /* small flicker on main layer to add subtle jump */
+  .glitch { animation: none; }
+
+  /* small flicker on main layer to add subtle jump only during intro */
+  .glitch-play .glitch {
+    animation: glitch-flicker 1.8s steps(1) 0s 2;
+  }
+
+  @keyframes glitch-flicker {
+    0%, 50%, 100% { opacity: 1; transform: none; }
+    25% { opacity: 0.98; transform: translateY(-1px); }
+    35% { opacity: 0.99; transform: translateY(0); }
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .glitch[data-text]::before,
+    .glitch[data-text]::after,
+    .glitch { animation: none !important; }
+  }
+
+  /* ---------------------------
+     Futuristic intro: neon + shine + subtle 3D pop
+     - Uses background-clip for gradient text
+     - ::before provides a faint reflection/glow layer
+     - ::after is a single-run shine sweep during intro (.futuristic-play)
+     - A small pop/scale animation gives cinematic feel
+  --------------------------- */
+  .futuristic-wrapper { display: inline-block; perspective: 800px; }
+
+  .futuristic {
+    position: relative;
+    display: inline-block;
+    -webkit-background-clip: text;
+    background-clip: text;
+    /* Fallback solid color for non-supporting browsers and to keep text visible */
+    color: var(--p-primary);
+    /* keep gradient on supported browsers */
+    background-image: linear-gradient(90deg, rgba(120,255,170,1) 0%, rgba(20,230,110,1) 40%, rgba(6,158,45,1) 100%);
+    -webkit-text-fill-color: transparent; /* for Safari/Chrome to show background-clip */
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-shadow:
+      0 2px 0 rgba(0,0,0,0.6),
+      0 10px 30px rgba(6,158,45,0.2),
+      0 4px 18px rgba(6,158,45,0.12);
+    transform-origin: center bottom;
+    will-change: transform, opacity;
+  }
+
+  .futuristic::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0; top: 0; width: 100%; height: 100%;
+    color: rgba(200,255,230,0.08);
+    filter: blur(6px);
+    transform: translateZ(-1px) scale(1.02);
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+
+  /* Shine layer - only active during intro */
+  .futuristic::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.85) 50%, transparent 100%);
+    transform: translateX(-120%);
+    opacity: 0.9;
+    pointer-events: none;
+  }
+
+  /* intro play: pop + run shine sweep once */
+  .futuristic-play .futuristic {
+    animation: futuristic-pop 0.9s cubic-bezier(.2,.9,.25,1) 0s 1 both;
+  }
+
+  .futuristic-play .futuristic::after {
+    animation: futuristic-shine 1.2s cubic-bezier(.25,.8,.25,1) 0s 1 both;
+  }
+
+  @keyframes futuristic-pop {
+    0% { opacity: 0; transform: translateY(10px) rotateX(16deg) scale(0.96); filter: blur(2px); }
+    40% { opacity: 1; transform: translateY(0) rotateX(6deg) scale(1.03); filter: blur(0.5px); }
+    100% { opacity: 1; transform: translateY(0) rotateX(0deg) scale(1); filter: none; }
+  }
+
+  @keyframes futuristic-shine {
+    0% { transform: translateX(-120%); opacity: 0; }
+    20% { opacity: 0.02; }
+    50% { transform: translateX(20%); opacity: 0.9; }
+    100% { transform: translateX(120%); opacity: 0; }
+  }
+
+  /* subtle looping micro glow when not playing (very light, optional) */
+  .futuristic-wrapper:not(.futuristic-play) .futuristic {
+    /* gentle breathing: slight scale + glow loop to keep some motion visible */
+    animation: futuristic-breathe 4.2s ease-in-out infinite;
+  }
+
+  @keyframes futuristic-breathe {
+    0% { transform: translateY(0) scale(1); text-shadow: 0 6px 18px rgba(6,158,45,0.06); }
+    50% { transform: translateY(-1px) scale(1.01); text-shadow: 0 12px 32px rgba(6,158,45,0.12); }
+    100% { transform: translateY(0) scale(1); text-shadow: 0 6px 18px rgba(6,158,45,0.06); }
+  }
+
+  /* Respect reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    .futuristic-play .futuristic,
+    .futuristic-play .futuristic::after,
+    .futuristic-wrapper:not(.futuristic-play) .futuristic { animation: none !important; }
+    .futuristic { transform: none !important; }
+  }
+
+  /* ---------------------------
+     Per-letter simple looping motion
+     - Each letter uses a small vertical bounce and subtle scale
+     - Staggered via CSS variable --i
+     - Respects prefers-reduced-motion
+  --------------------------- */
+  .brand-letter {
+    display: inline-block;
+    transform-origin: center bottom;
+    will-change: transform;
+    animation: letter-bob 1.6s cubic-bezier(.2,.8,.2,1) infinite;
+    animation-delay: calc(var(--i) * 0.12s);
+  }
+
+  /* Prevent navbar brand letters from wrapping on small screens */
+  .brand-title {
+    white-space: nowrap;
+    display: inline-block;
+    overflow: visible;
+  }
+
+  /* 3D extruded text effect for the brand */
+  /* brand-3d removed: using simple gradient + subtle shadow for clarity */
+
+  @keyframes letter-bob {
+    0% { transform: translateY(0) scale(1); }
+    30% { transform: translateY(-6px) scale(1.04); }
+    60% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(0) scale(1); }
+  }
+
+  /* Slightly offset the timing on larger screens for a smoother wave */
+  @media (min-width: 768px) {
+    .brand-letter { animation-duration: 1.8s; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .brand-letter { animation: none !important; transform: none !important; }
   }
 
   /* ---------------------------
@@ -436,6 +720,30 @@
   .search-button .fallback-emoji { display: inline-block !important; }
   .search-button.svg-missing svg { display: none !important; }
   .search-button.svg-missing .fallback-emoji { display: inline-block !important; }
+  /* Allow explicit icon wrappers to show their SVG even if general SVGs are hidden
+    This keeps backward compatibility with the emoji fallback while letting
+    components intentionally opt-in to use SVG icons by wrapping them with
+    a `.icon-white` element inside the button. */
+  .search-button .icon-white svg { display: inline-block !important; width: 1rem; height: 1rem; }
+  /* Remove visual divider between joined input and search button */
+  .search-input { border-right: none !important; }
+  .search-button { border-left: none !important; box-shadow: none !important; }
+  /* Ensure rounded corners still look correct when borders removed */
+  .search-input.rounded-l-lg { border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important; }
+  .search-button.rounded-r-lg { border-top-left-radius: 0 !important; border-bottom-left-radius: 0 !important; }
+  /* Extra overrides: remove any join-item separators or pseudo-elements that create a vertical line */
+  .join .join-item + .join-item { border-left: none !important; box-shadow: none !important; }
+  .search-button::before, .search-button::after, .search-input::before, .search-input::after { display: none !important; }
+  .search-button, .search-input { box-shadow: none !important; outline: none !important; border: none !important; }
+  /* ensure input background continues to match layout when borders removed */
+  .search-input { background-clip: padding-box; }
+
+  /* More specific overrides to force-remove the divider coming from join/btn pseudo-elements */
+  .join .search-input { border-right: 0 !important; box-shadow: none !important; }
+  .join .search-button { border-left: 0 !important; box-shadow: none !important; }
+  .join .join-item::before, .join .join-item::after { display: none !important; }
+  .join .btn::before, .join .btn::after { display: none !important; }
+  .search-input:focus, .search-button:focus { outline: none !important; box-shadow: none !important; }
   /* ---------------------------
      Hero robots layout (flex-based, side-by-side)
   --------------------------- */

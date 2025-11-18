@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import AnimatedIn from '../components/AnimatedIn'
+import Icons from '../components/Icons'
 
 const Home = () => {
   return (
@@ -29,8 +30,8 @@ const Home = () => {
             <Link to="/about" className="btn btn-primary btn-lg hover:scale-105 transition-transform">
               Tentang Kami
             </Link>
-            <Link to="/gallery" className="btn btn-ghost btn-lg hover:scale-105 transition-transform">
-              Lihat Galeri
+            <Link to="/contact" className="btn btn-ghost btn-lg hover:scale-105 transition-transform">
+              Kirim Pesan
             </Link>
           </div>
         </AnimatedIn>
@@ -50,16 +51,16 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="container mx-auto px-4 -mt-10 relative z-20 mb-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <section className="container mx-auto px-4 py-12 md:py-16 relative z-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10 max-w-5xl mx-auto">
           {[
-            { icon: '👥', value: '34', title: 'Anggota Kelas', desc: 'Developers' },
-            { icon: '🏆', value: '10+', title: 'Partisipasi', desc: 'Event' },
-            { icon: '⚡', value: '5+', title: 'Tech Stack', desc: 'Teknologi Modern' },
+            { icon: <Icons.Users size={48} className="mx-auto" />, value: '34', title: 'Anggota Kelas', desc: 'Developers' },
+            { icon: <Icons.Trophy size={48} className="mx-auto" />, value: '10+', title: 'Partisipasi', desc: 'Event' },
+            { icon: <Icons.Bolt size={48} className="mx-auto" />, value: '5+', title: 'Tech Stack', desc: 'Teknologi Modern' },
           ].map((stat, i) => (
             <AnimatedIn key={i} index={i}>
               <div className="glass-effect simple-border rounded-2xl p-8 text-center hover:scale-105 transition-all">
-                <div className="text-5xl mb-4">{stat.icon}</div>
+                <div className="mb-4 flex justify-center">{stat.icon}</div>
                 <div className="text-5xl font-black mb-2 gradient-text">{stat.value}</div>
                 <h3 className="text-lg font-bold gradient-text mb-2">{stat.title}</h3>
                 <p className="text-muted">{stat.desc}</p>
@@ -92,16 +93,16 @@ const Home = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {[
-            { title: 'Web Development', desc: 'HTML, CSS, JavaScript, React, TypeScript', icon: '🌐' },
-            { title: 'Mobile Development', desc: 'Android, Flutter', icon: '📱' },
-            { title: 'Game Development', desc: 'Unity', icon: '🎮' },
-            { title: 'Database', desc: 'MySQL', icon: '🗄️' },
-            { title: 'UI/UX Design', desc: 'Figma', icon: '🎨' },
-            { title: 'Backend Development', desc: 'Node.js, Laravel', icon: '⚙️' },
+            { title: 'Web Development', desc: 'HTML, CSS, JavaScript, React, TypeScript', icon: <Icons.Globe size={48} className="mx-auto" /> },
+            { title: 'Mobile Development', desc: 'Android, Flutter', icon: <Icons.Mobile size={48} className="mx-auto" /> },
+            { title: 'Game Development', desc: 'Unity', icon: <Icons.Gamepad size={48} className="mx-auto" /> },
+            { title: 'Database', desc: 'MySQL', icon: <Icons.Database size={48} className="mx-auto" /> },
+            { title: 'UI/UX Design', desc: 'Figma', icon: <Icons.Palette size={48} className="mx-auto" /> },
+            { title: 'Backend Development', desc: 'Node.js, Laravel', icon: <Icons.Cog size={48} className="mx-auto" /> },
           ].map((tech, i) => (
             <AnimatedIn key={i} index={i}>
               <div key={i} className="card-hover simple-border glass-effect rounded-2xl p-8 text-center hover:scale-105 transition-all">
-                <div className="text-5xl mb-4">{tech.icon}</div>
+                <div className="mb-4 flex justify-center">{tech.icon}</div>
                 <h3 className="text-xl font-bold gradient-text mb-2">{tech.title}</h3>
                 <p className="text-muted">{tech.desc}</p>
               </div>
@@ -123,10 +124,10 @@ const Home = () => {
               </p>
               <div className="flex gap-4 justify-center flex-wrap">
                 <Link to="/members" className="btn btn-primary btn-lg hover:scale-105 transition-all">
-                  👥 Lihat Anggota
+                  <Icons.Users size={18} className="inline-block mr-2" /> Lihat Anggota
                 </Link>
                 <Link to="/gallery" className="btn btn-ghost btn-lg hover:scale-105 transition-all">
-                  📸 Galeri Kami
+                  <Icons.Camera size={18} className="inline-block mr-2" /> Galeri Kami
                 </Link>
               </div>
             </div>

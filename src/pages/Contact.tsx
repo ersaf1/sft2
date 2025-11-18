@@ -41,13 +41,15 @@ const members = [
 
 const Contact: React.FC = () => {
   const [name, setName] = useState('')
-  const [subject, setSubject] = useState('')
+  // subject/title removed per user request
   const [message, setMessage] = useState('')
-  const [sendAll, setSendAll] = useState(true)
+  // messages are always broadcasted to the group (no recipient UI)
+  // sendAll state removed per user request
   const [sent, setSent] = useState<null | { time: number; recipients: number }>(null)
   const [broadcasts, setBroadcasts] = useState<Array<any>>([])
+  const [selectedIds, setSelectedIds] = useState<number[]>(members.map(m => m.id))
 
-  const recipientCount = sendAll ? members.length : 0
+  // recipientCount not shown in UI per request
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -55,11 +57,17 @@ const Contact: React.FC = () => {
     // Save broadcast to localStorage as a simple simulation of 'sending to all members'
     try {
       const existing = JSON.parse(localStorage.getItem('broadcasts' ) || '[]')
-      const record = { id: Date.now(), from: name || 'Anonymous', subject, message, time: Date.now(), recipients: sendAll ? members.length : 0 }
-      existing.unshift(record)
-      localStorage.setItem('broadcasts', JSON.stringify(existing))
-      setSent({ time: Date.now(), recipients: record.recipients })
-      setBroadcasts(existing)
+      // remove expired (older than 7 days)
+      const TTL = 7 * 24 * 60 * 60 * 1000
+      const now = Date.now()
+      const fresh = existing.filter((b: any) => (now - (b.time || 0)) <= TTL)
+  // record recipients as array of ids (empty -> all)
+  const recipientsArr = selectedIds.length === members.length ? [] : selectedIds.slice()
+  const record = { id: Date.now(), from: name || 'Anonymous', message, time: now, recipients: recipientsArr }
+      fresh.unshift(record)
+      localStorage.setItem('broadcasts', JSON.stringify(fresh))
+  setSent({ time: now, recipients: recipientsArr.length === 0 ? members.length : recipientsArr.length })
+      setBroadcasts(fresh)
     } catch (err) {
       console.error(err)
     }
@@ -68,57 +76,46 @@ const Contact: React.FC = () => {
   useEffect(() => {
     try {
       const existing = JSON.parse(localStorage.getItem('broadcasts') || '[]')
-      setBroadcasts(existing)
+      // filter out expired broadcasts (older than 7 days)
+      const TTL = 7 * 24 * 60 * 60 * 1000
+      const now = Date.now()
+      const fresh = existing.filter((b: any) => (now - (b.time || 0)) <= TTL)
+      // persist cleaned list
+      if (fresh.length !== existing.length) localStorage.setItem('broadcasts', JSON.stringify(fresh))
+      setBroadcasts(fresh)
     } catch (err) {
       setBroadcasts([])
     }
   }, [])
 
-  const deleteBroadcast = (id: number) => {
-    try {
-      const filtered = broadcasts.filter((b: any) => b.id !== id)
-      localStorage.setItem('broadcasts', JSON.stringify(filtered))
-      setBroadcasts(filtered)
-    } catch (err) {
-      console.error(err)
+  const toggleMember = (id: number) => {
+    setSelectedIds(prev => prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id])
+  }
+  const toggleAll = (on?: boolean) => {
+    if (typeof on === 'boolean') {
+      setSelectedIds(on ? members.map(m => m.id) : [])
+    } else {
+      setSelectedIds(prev => prev.length === members.length ? [] : members.map(m => m.id))
     }
   }
 
-  const clearAllBroadcasts = () => {
-    if (!confirm('Hapus semua pesan terkirim?')) return
-    try {
-      localStorage.removeItem('broadcasts')
-      setBroadcasts([])
-    } catch (err) {
-      console.error(err)
-    }
-  }
+  // delete/clear functions removed per user request; messages auto-expire after 7 days
 
   const copyBroadcast = async (b: any) => {
     try {
-      await navigator.clipboard.writeText(`Subject: ${b.subject}\nFrom: ${b.from}\n\n${b.message}`)
+      const header = `Dari: ${b.from} — ${new Date(b.time).toLocaleString()}`
+      await navigator.clipboard.writeText(`${header}\n\n${b.message}`)
       alert('Pesan disalin ke clipboard.')
     } catch (err) {
       alert('Gagal menyalin pesan.')
     }
   }
 
-  const downloadRecipients = () => {
-    const csv = members.map(m => `"${m.name}","@${m.handle}"`).join('\n')
-    const blob = new Blob([`name,handle\n${csv}`], { type: 'text/csv' })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = 'recipients.csv'
-    document.body.appendChild(a)
-    a.click()
-    a.remove()
-    URL.revokeObjectURL(url)
-  }
+  // downloadRecipients removed per user request (no recipients UI)
 
   const copyMessage = async () => {
     try {
-      await navigator.clipboard.writeText(`Subject: ${subject}\n\n${message}`)
+      await navigator.clipboard.writeText(message)
       alert('Pesan disalin ke clipboard. Kamu bisa menempelkannya ke email atau DM.')
     } catch (err) {
       alert('Gagal menyalin. Silakan salin manual.')
@@ -129,39 +126,53 @@ const Contact: React.FC = () => {
     <div className="container mx-auto px-4 py-12">
       <AnimatedIn>
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold">Kontak <span className="gradient-text">ESEFTWO</span></h1>
-          <p className="text-muted mt-2">Kirim pesan ke seluruh anggota ESEFTWO. Saat ini fungsi kirim disimulasikan (no backend).</p>
+          <h1 className="text-4xl font-bold">Kontak <span className="gradient-text inline-block">ESEFTWO</span></h1>
+          <p className="text-muted mt-2">Kirim pesan ke seluruh anggota ESEFTWO</p>
         </div>
       </AnimatedIn>
 
       <AnimatedIn>
         <form onSubmit={handleSubmit} className="max-w-3xl mx-auto bg-base-100 p-8 rounded-2xl glass-effect">
           <div className="grid grid-cols-1 gap-4">
+            {/* Recipient selector: dropdown with checkboxes */}
+            <div className="flex flex-col">
+              <label className="font-medium mb-2">Penerima</label>
+              <details className="relative">
+                <summary className="btn btn-outline btn-sm mb-2">{selectedIds.length === members.length ? `Semua anggota (${members.length})` : `${selectedIds.length} terpilih`}</summary>
+                <div className="mt-2 p-3 bg-base-100 border rounded-md max-h-56 overflow-auto">
+                  <label className="flex items-center gap-2 mb-2">
+                    <input type="checkbox" className="checkbox" checked={selectedIds.length === members.length} onChange={(e) => toggleAll(e.target.checked)} />
+                    <span className="text-sm">Pilih semua</span>
+                  </label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {members.map(m => (
+                      <label key={m.id} className="flex items-center gap-2 p-1 rounded hover:bg-base-200">
+                        <input type="checkbox" className="checkbox" checked={selectedIds.includes(m.id)} onChange={() => toggleMember(m.id)} />
+                        <span className="text-sm">{m.name}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              </details>
+            </div>
             <label className="flex flex-col">
               <span className="font-medium mb-2">Nama (pengirim)</span>
               <input className="input input-bordered" value={name} onChange={(e) => setName(e.target.value)} placeholder="Nama kamu" />
             </label>
 
-            <label className="flex flex-col">
-              <span className="font-medium mb-2">Subjek</span>
-              <input className="input input-bordered" value={subject} onChange={(e) => setSubject(e.target.value)} placeholder="Judul pesan" required />
-            </label>
+            {/* title/subject removed */}
 
             <label className="flex flex-col">
               <span className="font-medium mb-2">Pesan</span>
               <textarea className="textarea textarea-bordered h-40" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Tulis pesanmu di sini" required />
             </label>
 
-            <label className="flex items-center gap-3">
-              <input type="checkbox" checked={sendAll} onChange={(e) => setSendAll(e.target.checked)} className="checkbox" />
-              <span>Kirim ke semua anggota ({members.length})</span>
-            </label>
+            
 
             <div className="flex items-center justify-between gap-4">
               <button type="submit" className="btn btn-primary">Kirim</button>
               <div className="flex gap-3 items-center">
                 <button type="button" onClick={copyMessage} className="btn btn-ghost">Salin pesan</button>
-                <button type="button" onClick={downloadRecipients} className="btn btn-ghost">Unduh daftar penerima</button>
               </div>
             </div>
 
@@ -174,28 +185,13 @@ const Contact: React.FC = () => {
         </form>
       </AnimatedIn>
 
-      <AnimatedIn>
-        <section className="max-w-4xl mx-auto mt-8">
-          <h3 className="text-lg font-semibold mb-3">Preview penerima</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-            {members.map(m => (
-              <div key={m.id} className="p-3 rounded-lg bg-base-200 shadow-sm">
-                <div className="font-medium">{m.name}</div>
-                <div className="text-sm text-muted">@{m.handle}</div>
-              </div>
-            ))}
-          </div>
-        </section>
-      </AnimatedIn>
+      {/* Recipient preview removed per user request */}
 
       <AnimatedIn>
         <section className="max-w-4xl mx-auto mt-8">
-          <div className="flex items-center justify-between mb-3">
+          <div className="mb-3">
             <h3 className="text-lg font-semibold">Pesan Terkirim</h3>
-            <div className="flex items-center gap-2">
-              <button onClick={() => { window.location.reload() }} className="btn btn-ghost btn-sm">Muat ulang</button>
-              <button onClick={clearAllBroadcasts} className="btn btn-ghost btn-sm text-red-500">Hapus semua</button>
-            </div>
+            <div className="text-sm text-muted">Pesan akan otomatis dihapus setelah 7 hari.</div>
           </div>
 
           {broadcasts.length === 0 ? (
@@ -208,10 +204,26 @@ const Contact: React.FC = () => {
                     <div>
                       <div className="font-semibold">{b.subject}</div>
                       <div className="text-sm text-muted">Dari: {b.from} — {new Date(b.time).toLocaleString()}</div>
+                      <div className="text-sm text-muted mt-1">Untuk: {
+                        Array.isArray(b.recipients)
+                          ? (b.recipients.length === 0
+                              ? `Semua anggota (${members.length})`
+                              : (() => {
+                                  const names = b.recipients.map((id: number) => {
+                                    const m = members.find(x => x.id === id)
+                                    return m ? m.name : `#${id}`
+                                  })
+                                  const MAX_SHOW = 6
+                                  if (names.length <= MAX_SHOW) return names.join(', ')
+                                  const first = names.slice(0, MAX_SHOW).join(', ')
+                                  return `${first} +${names.length - MAX_SHOW} lainnya`
+                                })()
+                            )
+                          : (typeof b.recipients === 'number' ? `${b.recipients} anggota` : `Semua anggota (${members.length})`)
+                      }</div>
                     </div>
                     <div className="flex items-center gap-2">
                       <button onClick={() => copyBroadcast(b)} className="btn btn-ghost btn-sm">Salin</button>
-                      <button onClick={() => deleteBroadcast(b.id)} className="btn btn-ghost btn-sm text-red-500">Hapus</button>
                     </div>
                   </div>
                   <div className="mt-3 whitespace-pre-wrap text-sm">{b.message}</div>

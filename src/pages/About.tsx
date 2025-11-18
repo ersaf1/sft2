@@ -6,7 +6,7 @@ const About = () => {
             {/* Header */}
             <AnimatedIn>
               <div className="text-center mb-12">
-                  <h1 className="text-5xl font-bold mb-4">Tentang <span className="gradient-text">eseftwo</span></h1>
+                  <h1 className="text-5xl font-bold mb-4">Tentang <span className="gradient-text">ESEFTWO</span></h1>
                   <div className="divider max-w-xs mx-auto"></div>
                   <p className="text-xl text-gray-600">PPLG 2 - Pengembangan Perangkat Lunak dan Gim</p>
               </div>
