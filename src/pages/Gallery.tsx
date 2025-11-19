@@ -96,7 +96,7 @@ const Gallery = () => {
                 <div className="text-center mb-12">
                     <h1 className="text-5xl font-bold mb-4">Galeri <span className="gradient-text">ESEFTWO</span></h1>
                     <div className="divider max-w-xs mx-auto"></div>
-                    <p className="text-xl text-gray-600">Dokumentasi kegiatan kelas PPLG 2 — foto dan video dari hackathon, workshop, project showcase, kunjungan industri, dan kegiatan kelas lainnya.</p>
+                    <p className="text-xl text-gray-600">Dokumentasi kegiatan kelas PPLG 2 foto dan video dari hackathon, workshop, project showcase, kunjungan industri, dan kegiatan kelas lainnya.</p>
                 </div>
             </AnimatedIn>
 

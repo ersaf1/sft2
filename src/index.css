@@ -708,6 +708,21 @@
     animation: gradient-shift 8s ease infinite;
   }
 
+  /* Theme-aware override for small parts inside gradient headings
+     Use this for spans like: <h1 class="gradient-text"><span class="theme-text">Welcome to</span> ESEFTWO</h1>
+     Ensures the span uses the theme color (var(--text-main)) and does not inherit the gradient.
+  */
+  .gradient-text .theme-text,
+  .theme-text {
+    color: var(--text-main) !important;
+    -webkit-text-fill-color: var(--text-main) !important;
+    background: none !important;
+    background-image: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    text-shadow: none !important;
+  }
+
   /* Global helper: force white icons when using brand dark backgrounds */
   .icon-white svg {
     stroke: #ffffff !important;
@@ -908,6 +923,113 @@
 
   @media (min-width: 768px) {
     .splash-logo { width: 260px; height: 260px; }
+  }
+
+  /* ---------------------------
+     Timeline helpers: avoid clipping of timeline markers and boxes
+  --------------------------- */
+  .timeline {
+    overflow: visible;
+    position: relative;
+  }
+
+  .timeline .timeline-box {
+    overflow: visible !important;
+    position: relative;
+    z-index: 1;
+  }
+
+  .timeline .timeline-middle {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Ensure cards in the timeline don't hide outside markers */
+  .timeline .card,
+  .timeline .card-body,
+  .card.timeline-box {
+    overflow: visible !important;
+  }
+
+  /* Timeline layout: centered vertical line with left/right lanes
+     - Use a three-column grid per row: left content, center marker/line, right content
+     - Hide legacy <hr> elements used earlier and draw a single continuous center line
+  */
+  .timeline.timeline-vertical {
+    position: relative;
+    padding: 1rem 0;
+  }
+
+  .timeline.timeline-vertical::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, rgba(var(--p-primary-rgb),0.95) 0%, rgba(var(--p-primary-rgb),0.75) 50%, rgba(var(--p-primary-rgb),0.6) 100%);
+    border-radius: 999px;
+    z-index: 0;
+  }
+
+  .timeline.timeline-vertical > li {
+    display: grid;
+    grid-template-columns: 1fr 88px 1fr;
+    gap: 1rem;
+    align-items: start;
+    position: relative;
+    padding: 1.25rem 0;
+  }
+
+  /* Center marker column */
+  .timeline .timeline-middle {
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Box columns (left / right) should fill their lanes */
+  .timeline .timeline-start { grid-column: 1; }
+  .timeline .timeline-end { grid-column: 3; }
+
+  /* Hide legacy hr lines inside timeline markup (we draw our own center line) */
+  .timeline hr { display: none; }
+
+  /* Marker visual (circle) */
+  .timeline .timeline-middle > svg,
+  .timeline .timeline-middle > .marker {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--p-primary);
+    color: white;
+    box-shadow: 0 4px 12px rgba(var(--p-primary-rgb), 0.18);
+  }
+
+  /* Timeline boxes: keep consistent spacing and z-index above line */
+  .timeline .timeline-box {
+    z-index: 1;
+    margin: 0;
+  }
+
+  /* Small screens: collapse to single column with marker on top */
+  @media (max-width: 767px) {
+    .timeline.timeline-vertical::before { left: 18px; transform: none; width: 4px; }
+    .timeline.timeline-vertical > li { grid-template-columns: 40px 1fr; gap: 0.75rem; padding: 1rem 0; }
+    .timeline .timeline-middle { grid-column: 1; }
+    .timeline .timeline-start, .timeline .timeline-end { grid-column: 2; }
+    .timeline .timeline-middle > svg, .timeline .timeline-middle > .marker { width: 20px; height: 20px; }
   }
 
 }

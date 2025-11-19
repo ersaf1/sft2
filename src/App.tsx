@@ -3,6 +3,7 @@ import { AnimatePresence } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import AnimatedPage from './components/AnimatedPage'
+import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home.tsx'
 import About from './pages/About'
 import Members from './pages/Members'
@@ -25,6 +26,7 @@ function App() {
             </div>
             
             <Navbar />
+            <ScrollToTop />
             <main className="flex-grow">
                 <AnimatePresence mode="wait">
                     <Routes location={location} key={location.pathname}>

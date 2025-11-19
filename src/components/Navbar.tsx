@@ -156,7 +156,7 @@ const Navbar = () => {
             <div className="navbar-end lg:gap-2 flex items-center">
                 {/* Large-screen menu moved to the right side (before the toggle) */}
                 <div className="hidden lg:flex lg:items-center lg:mr-3">
-                    <ul className="menu menu-horizontal px-1 gap-2">
+                    <ul className="menu menu-horizontal px-1 gap-1">
                         <li><Link to="/" className={`nav-link text-base ${isActive('/') ? 'active' : ''}`}>Home</Link></li>
                         <li><Link to="/about" className={`nav-link text-base ${isActive('/about') ? 'active' : ''}`}>Tentang</Link></li>
                         <li><Link to="/members" className={`nav-link text-base ${isActive('/members') ? 'active' : ''}`}>Anggota</Link></li>

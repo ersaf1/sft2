@@ -14,16 +14,16 @@ const Home = () => {
       </div>
 
       {/* Hero Section */}
-  <section className="hero-split grid grid-cols-1 md:grid-cols-2 items-center container mx-auto px-1 py-2 gap-2 relative z-10">
+  <section className="hero-split grid grid-cols-1 md:grid-cols-2 items-center container mx-auto px-1 py-2 gap-1 relative z-10">
         {/* Left Column */}
   <AnimatedIn className="hero-left text-left pr-6 md:pr-12 lg:pr-20">
           {/* Menghapus backtick yang tidak perlu di sini */}
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-4 leading-tight gradient-text">
-            Welcome to ESEFTWO
+            <span className="theme-text">Welcome to</span> ESEFTWO
           </h1>
 
           <p className="text-lg md:text-xl mb-8 max-w-md text-muted leading-relaxed text-justify">
-            Di ESEFTWO kegiatan kami meliputi sesi coding bersama, bermain bersama, dan presentasi proyek. Suasananya santai dan penuh semangat — banyak eksperimen, diskusi, dan momen keren ketika sebuah ide berhasil diwujudkan.
+            Di ESEFTWO kegiatan kami meliputi sesi coding bersama, bermain bersama, dan presentasi proyek. Suasananya santai dan penuh semangat, diskusi, dan momen keren ketika sebuah ide berhasil diwujudkan.
           </p>
 
           <div className="flex gap-4 flex-wrap">
