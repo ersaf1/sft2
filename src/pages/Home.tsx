@@ -49,9 +49,12 @@ const Home = () => {
             <Link to="/about" className="btn btn-primary btn-lg px-7 py-3 text-lg hover:scale-105 transition-transform">
               Tentang Kami
             </Link>
-            <Link to="/contact" className="btn btn-ghost btn-lg px-7 py-3 text-lg hover:scale-105 transition-transform">
-              Kirim Pesan
-            </Link>
+            <button 
+              onClick={() => document.getElementById('social-media')?.scrollIntoView({ behavior: 'smooth' })}
+              className="btn btn-ghost btn-lg px-7 py-3 text-lg hover:scale-105 transition-transform"
+            >
+              Ikuti Kami
+            </button>
           </div>
         </AnimatedIn>
         {/* Right: Image */}

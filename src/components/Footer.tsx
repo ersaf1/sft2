@@ -1,6 +1,6 @@
 const Footer = () => {
     return (
-        <footer className="footer p-4 bg-base-200 text-base-content rounded mt-5 flex flex-col items-center gap-3">
+        <footer id="social-media" className="footer p-4 bg-base-200 text-base-content rounded mt-5 flex flex-col items-center gap-3">
             <nav className="flex flex-col items-center gap-2 w-full">
                 <div className="card-body items-center text-center w-full max-w-3xl mx-auto">
                     <h2 className="card-title text-2xl mb-2">Ikuti Kami di Social Media!</h2>
