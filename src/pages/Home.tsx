@@ -4,7 +4,7 @@ import Icons from '../components/Icons'
 
 const Home = () => {
   return (
-  <div className="min-h-screen hero-gradient relative overflow-hidden">
+  <div className="min-h-screen hero-gradient relative overflow-hidden" style={{ background: "var(--bg-main)", backgroundImage: "var(--bg-hero-light)" }}>
       {/* Background particles untuk light theme */}
       <div className="global-bg-particles">
         <div className="particle particle-1"></div>
@@ -14,41 +14,60 @@ const Home = () => {
       </div>
 
       {/* Hero Section */}
-  <section className="hero-split grid grid-cols-1 md:grid-cols-2 items-center container mx-auto px-1 py-2 gap-1 relative z-10">
-        {/* Left Column */}
-  <AnimatedIn className="hero-left text-left pr-6 md:pr-12 lg:pr-20">
-          {/* Menghapus backtick yang tidak perlu di sini */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-4 leading-tight gradient-text">
+        <section id="hero" className="container mx-auto px-4 md:px-8 pt-0 pb-6 md:pb-10 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 relative z-10">
+          {/* removed leftover glass-effect div for clean markup */}
+          <div className="w-full flex flex-col md:flex-row items-center md:items-center justify-between p-6 md:p-10 gap-8 md:gap-12" style={{background: "transparent"}}>
+        {/* Left: Text */}
+        <AnimatedIn className="hero-left flex-1 min-w-0 text-left flex flex-col justify-center">
+          <h1
+            className="text-5xl md:text-6xl lg:text-7xl font-black mb-2 gradient-text"
+            style={{
+              fontFamily: `'Iceland', 'Anta', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif`,
+              lineHeight: '1.08',
+              letterSpacing: '-0.8px',
+              WebkitFontSmoothing: 'antialiased',
+              MozOsxFontSmoothing: 'grayscale',
+              textRendering: 'optimizeLegibility',
+            }}
+          >
             <span className="theme-text">Welcome to</span> ESEFTWO
           </h1>
-
-          <p className="text-lg md:text-xl mb-8 max-w-md text-muted leading-relaxed text-justify">
+          <p
+            className="text-lg md:text-xl mb-6 max-w-xl text-muted"
+            style={{
+              fontFamily: `'Anta', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif`,
+              lineHeight: '1.38',
+              letterSpacing: '-0.3px',
+              WebkitFontSmoothing: 'antialiased',
+              MozOsxFontSmoothing: 'grayscale',
+              textRendering: 'optimizeLegibility',
+            }}
+          >
             Di ESEFTWO kegiatan kami meliputi sesi coding bersama, bermain bersama, dan presentasi proyek. Suasananya santai dan penuh semangat, diskusi, dan momen keren ketika sebuah ide berhasil diwujudkan.
           </p>
-
-          <div className="flex gap-4 flex-wrap">
-            <Link to="/about" className="btn btn-primary btn-lg hover:scale-105 transition-transform">
+          <div className="flex gap-3 flex-wrap">
+            <Link to="/about" className="btn btn-primary btn-lg px-7 py-3 text-lg hover:scale-105 transition-transform">
               Tentang Kami
             </Link>
-            <Link to="/contact" className="btn btn-ghost btn-lg hover:scale-105 transition-transform">
+            <Link to="/contact" className="btn btn-ghost btn-lg px-7 py-3 text-lg hover:scale-105 transition-transform">
               Kirim Pesan
             </Link>
           </div>
         </AnimatedIn>
-
-        {/* Right Column (Hero image) */}
-        <AnimatedIn className="hero-right relative flex items-center justify-center h-full">
-          <div className="robots-wrapper w-full h-full flex items-center justify-center">
-            {/* Single hero image: keep PNG transparency; larger on md+ screens and centered vertically */}
-            <img
-              loading="lazy"
-              src="/hai.png"
-              alt="Hai illustration"
-              className="w-full max-w-sm md:max-w-md lg:max-w-xl xl:max-w-2xl h-auto bg-transparent object-contain"
-            />
+        {/* Right: Image */}
+        <AnimatedIn className="hero-right flex-1 min-w-0 flex items-center justify-center">
+          <div className="robots-wrapper w-full flex items-center justify-center">
+                  <img
+                    id="hero-img"
+                    loading="lazy"
+                    src="/hai.png"
+                    alt="Hai illustration"
+                    className="w-full max-w-[260px] md:max-w-[320px] lg:max-w-[380px] xl:max-w-[420px] h-auto bg-transparent object-contain"
+                  />
           </div>
         </AnimatedIn>
-      </section>
+      </div>
+    </section>
 
       {/* Stats Section */}
       <section className="container mx-auto px-4 py-12 md:py-16 relative z-20">

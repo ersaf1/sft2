@@ -123,17 +123,17 @@ const Navbar = () => {
         <div className="navbar glass-effect sticky top-0 z-50">
             <div className="navbar-start">
                 <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+                    <div tabIndex={0} role="button" className="btn btn-ghost btn-lg btn-square lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to="/" className={`nav-link ${isActive('/') ? 'active' : ''}`}>Home</Link></li>
                         <li><Link to="/about" className={`nav-link ${isActive('/about') ? 'active' : ''}`}>Tentang</Link></li>
                         <li><Link to="/members" className={`nav-link ${isActive('/members') ? 'active' : ''}`}>Anggota</Link></li>
+                        <li><Link to="/schedule" className={`nav-link ${isActive('/schedule') ? 'active' : ''}`}>Jadwal</Link></li>
                         <li><Link to="/gallery" className={`nav-link ${isActive('/gallery') ? 'active' : ''}`}>Galeri</Link></li>
-                        <li><Link to="/contact" className={`nav-link ${isActive('/contact') ? 'active' : ''}`}>Kontak</Link></li>
 
                     </ul>
                 </div>
@@ -160,8 +160,8 @@ const Navbar = () => {
                         <li><Link to="/" className={`nav-link text-base ${isActive('/') ? 'active' : ''}`}>Home</Link></li>
                         <li><Link to="/about" className={`nav-link text-base ${isActive('/about') ? 'active' : ''}`}>Tentang</Link></li>
                         <li><Link to="/members" className={`nav-link text-base ${isActive('/members') ? 'active' : ''}`}>Anggota</Link></li>
+                        <li><Link to="/schedule" className={`nav-link text-base ${isActive('/schedule') ? 'active' : ''}`}>Jadwal</Link></li>
                         <li><Link to="/gallery" onClick={() => { try { sessionStorage.removeItem('galleryIntroShown') } catch {} }} className={`nav-link text-base ${isActive('/gallery') ? 'active' : ''}`}>Galeri</Link></li>
-                        <li><Link to="/contact" className={`nav-link text-base ${isActive('/contact') ? 'active' : ''}`}>Kontak</Link></li>
                     </ul>
                 </div>
                 {/* Hapus container fixed yang membuat tombol melayang di luar navbar */}

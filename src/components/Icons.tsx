@@ -11,6 +11,7 @@ import {
   Gear as PhGear,
   MagnifyingGlass as PhMagnifyingGlass,
   Camera as PhCamera,
+  InstagramLogo as PhInstagramLogo,
 } from 'phosphor-react'
 
 type IconProps = {
@@ -34,6 +35,7 @@ export const Palette = make(PhPalette)
 export const Cog = make(PhGear)
 export const MagnifyingGlass = make(PhMagnifyingGlass)
 export const Camera = make(PhCamera)
+export const Instagram = make(PhInstagramLogo)
 
 export default {
   Users,
@@ -47,4 +49,5 @@ export default {
   MagnifyingGlass,
   Cog,
   Camera,
+  Instagram,
 }
