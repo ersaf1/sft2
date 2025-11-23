@@ -85,6 +85,22 @@ const Gallery = () => {
 
     const introBg = getIntroBg()
 
+    // Logic for navigation
+    const filteredMedia = media.filter(m => m.type === (view === 'photos' ? 'image' : 'video'))
+    const currentIndex = viewerItem ? filteredMedia.findIndex(m => m.id === viewerItem.id) : -1
+    
+    const handleNext = () => {
+        if (currentIndex === -1) return
+        const nextIndex = (currentIndex + 1) % filteredMedia.length
+        setViewerItem(filteredMedia[nextIndex])
+    }
+
+    const handlePrev = () => {
+        if (currentIndex === -1) return
+        const prevIndex = (currentIndex - 1 + filteredMedia.length) % filteredMedia.length
+        setViewerItem(filteredMedia[prevIndex])
+    }
+
     return (
         <div className="container mx-auto px-4 py-12">
             {/* Intro animation shown before gallery content */}
@@ -119,7 +135,7 @@ const Gallery = () => {
                 <div className="mb-16">
                     <h2 className="text-3xl font-bold text-center mb-12">Dokumentasi Foto</h2>
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                        {media.filter((m) => m.type === 'image').map((m, i) => (
+                        {filteredMedia.map((m, i) => (
                             <AnimatedIn key={m.id} index={i}>
                                 <div
                                     className="group relative rounded-2xl overflow-hidden card-hover cursor-pointer bg-base-100 transform transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl"
@@ -139,8 +155,8 @@ const Gallery = () => {
                     <h2 className="text-3xl font-bold text-center mb-12">Video Dokumentasi</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {/* Show any video items from media first */}
-                        {media.filter((m) => m.type === 'video').length > 0 ? (
-                            media.filter((m) => m.type === 'video').map((m, i) => (
+                        {filteredMedia.length > 0 ? (
+                            filteredMedia.map((m, i) => (
                                 <AnimatedIn key={m.id} index={i}>
                                     <div className="group relative aspect-video rounded-2xl overflow-hidden card-hover cursor-pointer transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl bg-black" onClick={() => openViewer(m)}>
                                         <VideoThumb src={m.src} />
@@ -197,7 +213,14 @@ const Gallery = () => {
                 </div>
             )}
             {viewerItem && (
-                <MediaViewer item={viewerItem} onClose={closeViewer} />
+                <MediaViewer 
+                    item={viewerItem} 
+                    onClose={closeViewer} 
+                    onNext={handleNext}
+                    onPrev={handlePrev}
+                    hasNext={filteredMedia.length > 1}
+                    hasPrev={filteredMedia.length > 1}
+                />
             )}
         </div>
     )
