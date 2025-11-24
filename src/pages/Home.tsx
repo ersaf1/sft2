@@ -63,7 +63,7 @@ const Home = () => {
                   <img
                     id="hero-img"
                     loading="lazy"
-                    src="/hai.png"
+                    src="/hai.webp"
                     alt="Hai illustration"
                     className="w-full max-w-[260px] md:max-w-[320px] lg:max-w-[380px] xl:max-w-[420px] h-auto bg-transparent object-contain"
                   />

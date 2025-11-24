@@ -139,7 +139,7 @@ const Navbar = () => {
                 </div>
                 <div className="flex gap-3 items-center pl-2">
                     {/* Gantilah '/sft.png' dengan path logo Anda yang sebenarnya */}
-                    <img loading="lazy" src="/sft.png" alt="SFT logo" className="h-24 md:h-30 lg:h-34 w-auto" />
+                    <img loading="lazy" src="/sft.webp" alt="SFT logo" className="h-28 md:h-36 lg:h-40 w-auto" />
                     {/* Animated brand title: letter-by-letter motion (respects prefers-reduced-motion) */}
                     {/**
                      * Implementation notes:
