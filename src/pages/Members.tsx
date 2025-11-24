@@ -26,7 +26,7 @@ const Members: React.FC = () => {
         { id: 8, name: "DAFFA SETYA HANDIKA", instagram: "daffaastya", role: "Anggota", photo: "/members/8.svg" },
         { id: 9, name: "DEBYSA NURUL USTAROH", instagram: "prettyiiesth_", role: "Anggota", photo: "/members/9.svg" },
         { id: 10, name: "DIKA NURHIDAYAH", instagram: "_dknrhdyh", role: "Anggota", photo: "/members/10.svg" },
-        { id: 11, name: "ERSAF SYIRAZI ARIFIN", instagram: "3rsapp", role: "Anggota Ganteng", photo: "/members/11.svg" },
+        { id: 11, name: "ERSAF SYIRAZI ARIFIN", instagram: "3rsapp", role: "Anggota", photo: "/members/11.svg" },
         { id: 12, name: "FADLAN KAUTSAR ALBUKHARI", instagram: "fdlnktsrrr_", role: "Anggota", photo: "/members/12.svg" },
         { id: 13, name: "FATIKA NUR FAHRANI", instagram: "tikaanff_", role: "Anggota", photo: "/members/13.svg" },
         { id: 14, name: "FIKO ANGGARA PUTRA", instagram: "bro_fkk", role: "Anggota", photo: "/members/14.svg" },
