@@ -40,7 +40,7 @@ const Splash: React.FC<Props> = ({ onFinish }) => {
         <div className="fixed inset-0 z-[100] bg-black flex items-center justify-center splash-fullscreen-video">
             <video
                 ref={videoRef}
-                src="/sftA.mp4"
+                src="/sftA.webm"
                 preload="auto"
                 autoPlay
                 // NOTE: we try to play unmuted first; if browser blocks autoplay with sound

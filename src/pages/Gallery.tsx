@@ -36,22 +36,22 @@ const Gallery = () => {
         // Preload media files that are placed in public/gallery.
         // If you add more files to public/gallery, include them here.
         const galleryFiles = [
-            'e1.jpg',
-            'e2.jpg',
-            'e3.jpg',
-            'e4.jpg',
-            'e5.jpg',
-            'e6.mp4',
-            'e7.jpg',
-            'e8.jpg',
-            'e9.jpg',
-            'e10.mp4',
-            'e11.mp4',
-            'e12.mp4',
-            'e13.jpg',
-            'e14.jpg',
-            'e15.jpg',
-            'e16.jpg',
+            'e1.webp',
+            'e2.webp',
+            'e3.webp',
+            'e4.webp',
+            'e5.webp',
+            'e6.webm',
+            'e7.webp',
+            'e8.webp',
+            'e9.webp',
+            'e10.webm',
+            'e11.webm',
+            'e12.webm',
+            'e13.webp',
+            'e14.webp',
+            'e15.webp',
+            'e16.webp',
         ]
 
         const examples: MediaItem[] = galleryFiles.map((name, idx) => {
