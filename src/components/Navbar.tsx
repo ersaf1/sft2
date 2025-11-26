@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 
 // ************************************
@@ -72,8 +72,6 @@ const IntroBrand: React.FC = () => {
 const Navbar = () => {
     // State untuk tema saat ini
     const [theme, setTheme] = useState(getInitialTheme);
-    // State untuk memicu animasi ikon saat toggle
-    const [animating, setAnimating] = useState(false);
     const location = useLocation();
 
     // ************************************
@@ -90,11 +88,6 @@ const Navbar = () => {
     // ************************************
 
     const toggleTheme = () => {
-        // Mulai animasi
-        setAnimating(true);
-        // Hentikan animasi setelah 500ms
-        window.setTimeout(() => setAnimating(false), 500);
-        
         // Logika untuk berganti tema
         const newTheme = theme === 'eseftwo-light' ? 'minimalist' : 'eseftwo-light';
         setTheme(newTheme);
@@ -138,7 +131,8 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="flex gap-3 items-center pl-2">
-                    <img loading="lazy" src="/sft.webp" alt="SFT logo" className="h-28 md:h-36 lg:h-40 w-auto" />
+                    {/* Gantilah '/sft.png' dengan path logo Anda yang sebenarnya */}
+                    <img loading="lazy" src="/sft.webp" alt="SFT logo" className="h-16 md:h-20 lg:h-24 w-auto" />
                     {/* Animated brand title: letter-by-letter motion (respects prefers-reduced-motion) */}
                     {/**
                      * Implementation notes:
@@ -169,23 +163,38 @@ const Navbar = () => {
                     aria-label="Toggle light/dark theme"
                     title={tooltipText}
                     aria-pressed={theme === 'eseftwo-light'}
-                    // Menggunakan 'btn-ghost' dan 'btn-square' untuk mendapatkan tampilan kotak yang sesuai dengan screenshot.
-                    className="btn btn-ghost flex items-center justify-center gap-1 p-2 text-base-content shadow-none transition-all"
+                    className="relative inline-flex h-10 w-10 items-center justify-center rounded-full bg-base-content/5 hover:bg-base-content/10 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary/50 ml-2 overflow-hidden"
                 >
-                    {theme === 'eseftwo-light' ? (
-                        // Ikon Matahari (Sun icon for light mode)
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style={{ color: 'var(--text-main, #fff)', fill: 'var(--text-main, #fff)', stroke: 'var(--text-main, #fff)' }} className={`h-6 w-6 ${animating ? 'animate-toggle' : ''}`} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path style={{ fill: 'var(--text-main, #fff)' }} d="M12 17.5a5.5 5.5 0 100-11 5.5 5.5 0 000 11zm0-9a3.5 3.5 0 110 7 3.5 3.5 0 010-7z"/>
-                            <path style={{ fill: 'var(--text-main, #fff)' }} d="M13 1h-2v3h2V1zm0 19h-2v3h2v-3zM4 11H1v2h3v-2zm19 0h-3v2h3v-2zM5.99 4.58L4.58 5.99l1.41 1.41 1.42-1.41-1.42-1.41zm12.02 12.02l-1.41 1.41 1.41 1.42 1.42-1.42-1.42-1.41zM18.01 4.58l1.42 1.41 1.41-1.41-1.41-1.42-1.42 1.42zM5.99 18.01l1.41-1.41-1.41-1.42-1.42 1.42 1.42 1.41z"/>
-                        </svg>
-                    ) : (
-                        // Ikon Bulan (Moon icon for dark mode)
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style={{ color: 'var(--text-main, #fff)', fill: 'var(--text-main, #fff)', stroke: 'var(--text-main, #fff)' }} className={`h-6 w-6 ${animating ? 'animate-toggle' : ''}`} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path style={{ fill: 'var(--text-main, #fff)' }} d="M21.64 13a1 1 0 00-1.05-.14 8.05 8.05 0 01-3.37.73 8.15 8.15 0 01-8.14-8.1 8.59 8.59 0 01.25-2A1 1 0 008 2.36a10.14 10.14 0 1014 11.69 1 1 0 00-.36-1.05zm-9.5 6.69A8.14 8.14 0 017.08 5.22v.27a10.15 10.15 0 0010.14 10.14 9.79 9.79 0 002.1-.22 8.11 8.11 0 01-7.18 4.32z"/>
-                        </svg>
-                    )}
-                    {/* Fallback emoji to guarantee a visible indicator if SVG styling fails */}
-                    
+                    <AnimatePresence mode="wait" initial={false}>
+                        <motion.div
+                            key={theme}
+                            initial={{ y: -20, opacity: 0, rotate: -90 }}
+                            animate={{ y: 0, opacity: 1, rotate: 0 }}
+                            exit={{ y: 20, opacity: 0, rotate: 90 }}
+                            transition={{ duration: 0.3, ease: "backOut" }}
+                            className="absolute"
+                        >
+                            {theme === 'eseftwo-light' ? (
+                                // Ikon Matahari (Sun icon for light mode) - Kuning Cerah
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-yellow-500 fill-yellow-500/20">
+                                    <circle cx="12" cy="12" r="5"></circle>
+                                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                </svg>
+                            ) : (
+                                // Ikon Bulan (Moon icon for dark mode) - Putih/Biru Muda
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-blue-300 fill-blue-300/20">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                            )}
+                        </motion.div>
+                    </AnimatePresence>
                 </button>
             </div>
         </div>
