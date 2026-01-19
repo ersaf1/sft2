@@ -1,0 +1,16 @@
+{
+  "name": "eseftwo - XI PPLG 2",
+  "short_name": "eseftwo",
+  "description": "Website resmi kelas XI PPLG 2 - Software & Game Development",
+  "icons": [
+    {
+      "src": "/sft.webp",
+      "sizes": "1000x1000",
+      "type": "image/webp"
+    }
+  ],
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "display": "standalone",
+  "start_url": "/"
+}

@@ -41,7 +41,7 @@ const Members: React.FC = () => {
         { id: 23, name: "MUHAMMAD UBAIDILLAH MAULANA L", instagram: "ubaiimlzrd", role: "Anggota", photo: "/members/23.svg" },
         { id: 24, name: "NABILA CAHYA NUGROHO", instagram: "bilch_", role: "Anggota", photo: "/members/24.svg" },
         { id: 25, name: "NABILA SAFINATUNNAJAH", instagram: "bil_sfnx", role: "Wakil Ketua Kelas", photo: "/members/25.svg" },
-        { id: 26, name: "NADHIF AMYRTA FAHMA", instagram: "nadhif.amyrta.fahma", role: "Anggota", photo: "/members/26.svg" },
+        { id: 26, name: "NADHIF AMYRTA FAHMA", instagram: "daivyrss_", role: "Anggota", photo: "/members/26.svg" },
         { id: 27, name: "NAILA SETYANINGTYAS", instagram: "nylazaaa", role: "Anggota", photo: "/members/27.svg" },
         { id: 28, name: "NEYSA VASHTI RAMADANI", instagram: "neiyvst", role: "Anggota", photo: "/members/28.svg" },
         { id: 29, name: "NINA EVELYN", instagram: "orlle0.pie", role: "Anggota", photo: "/members/29.svg" },

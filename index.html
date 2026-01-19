@@ -3,8 +3,18 @@
 
 <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" sizes="1000x1000" href="/sft.webp" />
+    
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/webp" href="/sft.webp" />
+    <link rel="apple-touch-icon" href="/sft.webp" />
+    <link rel="shortcut icon" type="image/webp" href="/sft.webp" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE" />
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Preload the Google Fonts stylesheet for improved font load timing -->
@@ -12,6 +22,7 @@
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anta&family=Iceland&display=swap"></noscript>
     <title>eseftwo - XI PPLG 2 | Software & Game Development</title>
     <meta name="description" content="Kelas PPLG 2 - Pengembangan Perangkat Lunak dan Gim yang modern dan inovatif" />
+    <meta name="theme-color" content="#000000" />
     
     <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website" />
@@ -26,6 +37,19 @@
     <meta property="twitter:title" content="eseftwo - XI PPLG 2 | Software & Game Development" />
     <meta property="twitter:description" content="Website resmi kelas XI PPLG 2. Lihat galeri, jadwal pelajaran, dan karya kami disini." />
     <meta property="twitter:image" content="/sft.webp" />
+
+    <!-- Structured Data for Google Search -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "eseftwo - XI PPLG 2",
+        "url": "https://sft2.vercel.app/",
+        "logo": "https://sft2.vercel.app/sft.webp",
+        "description": "Kelas PPLG 2 - Pengembangan Perangkat Lunak dan Gim yang modern dan inovatif",
+        "sameAs": []
+    }
+    </script>
 
     <script>
         // Apply saved theme (or system preference) synchronously before the app loads.
